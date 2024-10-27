@@ -1,0 +1,1528 @@
+openapi: 3.0.0
+info:
+  title: MY SWEET SKRIPSI
+  contact: {}
+  version: "1.0.0"
+servers:
+  - url: http://localhost:8000/v1/api
+  - url: https://be-permission.up.railway.app/v1/api
+    variables: {}
+
+paths:
+  #FOR USERS LOGIN AND DASHBOARD
+  /login:
+    post:
+      tags:
+        - For Dashboard
+      summary: LOGIN PAGE
+      description: ""
+      operationId: LOGINPAGE
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: "hendripermana60@gmail.com"
+                password:
+                  type: string
+                  description: "User's password"
+              required:
+                - email
+                - password
+            examples:
+              example1:
+                value:
+                  email: "hendripermana60@gmail.com"
+                  password: "12345"
+      responses:
+        "200":
+          description: Successful response
+          headers: {}
+          content: {}
+        "400":
+          description: Login Not Successed
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+  /logout:
+    delete:
+      tags:
+        - For Dashboard
+      summary: LOGOUT
+      description: ""
+      operationId: LOGOUT
+      parameters: []
+      responses:
+        "200":
+          description: Successful response
+          headers: {}
+          content: {}
+        "400":
+          description: Already Logout
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /me:
+    get:
+      tags:
+        - For Dashboard
+      summary: GET USER DETAIL
+      description: ""
+      operationId: USERDETAIL
+      parameters: []
+      responses:
+        "200":
+          description: Successful response
+          headers: {}
+          content: {}
+        "400":
+          description: No Users Found
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /dashboard:
+    get:
+      tags:
+        - For Dashboard
+      summary: GET DATA DASHBOARD
+      description: ""
+      operationId: GETDATADASHBOARD
+      parameters: []
+      responses:
+        "200":
+          description: Successful Get Data Dashboard
+          headers: {}
+          content: {}
+        "400":
+          description: No Data Found
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+
+  #FOR DATA ROOM
+  /room:
+    get:
+      tags:
+        - For Student Room's
+      summary: GET ALL ROOM
+      description: "on this Endpoint you will get all data in room but you must have token for authorization by system "
+      operationId: GETROOMBYSEARCH
+      parameters: []
+      responses:
+        "200":
+          description: Successful Get Rooms
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success get data
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /room/byid/{id}:
+    get:
+      tags:
+        - For Student Room's
+      summary: GET DATA ROOM BY ID
+      description: ""
+      operationId: GETDATAROOMBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful Get Rooms
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success get data
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /room/{search}:
+    get:
+      tags:
+        - For Student Room's
+      summary: GET DATA ROOM BY SEARCH
+      description: ""
+      operationId: GETDATAROOMBYIDSEARCH
+      parameters:
+        - name: search
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful Get Rooms
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success get data
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /room/create:
+    post:
+      tags:
+        - For Student Room's
+      summary: REGISTER ROOM DATA
+      description: ""
+      operationId: CREATEROOMDATA
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id_ustadz:
+                  type: integer
+                  description: "Number of ID"
+                nameroom:
+                  type: string
+                  description: "Name Room You Want"
+              required:
+                - id_ustadz
+                - nameroom
+            examples:
+              example1:
+                value:
+                  id_ustadz: 1
+                  nameroom: "Abu Bakar 100"
+      responses:
+        "200":
+          description: Successful create Rooms
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success create data
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /room/update/{id}:
+    put:
+      tags:
+        - For Student Room's
+      summary: UPDATE ROOM BY ID
+      description: ""
+      operationId: UPDATEROOMBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id_ustadz:
+                  type: integer
+                  description: "Number of ID"
+                nameroom:
+                  type: string
+                  description: "Name Room You Want"
+              required:
+                - id_ustadz
+                - nameroom
+            examples:
+              example1:
+                value:
+                  id_ustadz: 1
+                  nameroom: "Abu Bakar 100"
+        required: false
+      responses:
+        "200":
+          description: Successful Update Rooms
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success Update data room
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /room/delete/{id}:
+    delete:
+      tags:
+        - For Student Room's
+      summary: DELETE DATA ROOM
+      description: ""
+      operationId: DELETEDATAROOMBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful Delete Rooms
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success delete data
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+
+  #FOR DATA SANTRI
+  /santri:
+    get:
+      tags:
+        - For Data Student
+      summary: GET ALL DATA SANTRI ALL
+      description: ""
+      operationId: GETDATASANTRIALL
+      parameters: []
+      responses:
+        "200":
+          description: Successful Get data santri
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success get data santri
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /santri/byid/{id}:
+    get:
+      tags:
+        - For Data Student
+      summary: GET DATA SANTRI BY ID
+      description: ""
+      operationId: GETDATASANTRIBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful Get data santri
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success get data santri
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /santri/{search}:
+    get:
+      tags:
+        - For Data Student
+      summary: GET DATA SANTRI BY NAME
+      description: ""
+      operationId: GETDATASANTRIBYNAME
+      parameters:
+        - name: search
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful Get data santri by name
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success get data santri by name
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /santri/register:
+    post:
+      tags:
+        - For Data Student
+      summary: REGISTER DATA SANTRI
+      description: ""
+      operationId: CREATESANTRIDATA
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name_santri:
+                  type: string
+                  description: Insert Name Santri
+                sex:
+                  type: integer
+                  description: 1 for Men, 0 for Women
+                fathername:
+                  type: string
+                  description: Father Name Insert
+                mothername:
+                  type: string
+                  description: Mother Name Insert
+                id_room:
+                  type: integer
+                  description: Where Santri/Santriwati is living
+                image:
+                  type: string
+                  format: binary
+                  description: Upload image for Santri/Wati
+              required:
+                - name_santri
+                - sex
+                - fathername
+                - mothername
+                - id_room
+                - image
+            examples:
+              example1:
+                value:
+                  name_santri: "Hendri Permana Putra"
+                  sex: 1
+                  fathername: "Ayah Hendri"
+                  mothername: "Ibu Hendri"
+                  id_room: 1
+                  image: ""
+      responses:
+        "200":
+          description: Successful create data santri
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success create data santri
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /santri/update/{id}:
+    put:
+      tags:
+        - For Data Student
+      summary: UPDATE DATA SANTRI BY ID
+      description: ""
+      operationId: UPDATEDATASANTRIBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: ""
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name_santri:
+                  type: string
+                  description: Insert Name Santri
+                sex:
+                  type: integer
+                  description: 1 for Men, 0 for Women
+                fathername:
+                  type: string
+                  description: Father Name Insert
+                mothername:
+                  type: string
+                  description: Mother Name Insert
+                id_room:
+                  type: integer
+                  description: Where Santri/Santriwati is living
+                image:
+                  type: string
+                  format: binary
+                  description: Upload image for Santri/Wati
+              required:
+                - name_santri
+                - sex
+                - fathername
+                - mothername
+                - id_room
+                - image
+            examples:
+              example1:
+                value:
+                  name_santri: "Hendri Permana Putra"
+                  sex: 1
+                  fathername: "Ayah Hendri"
+                  mothername: "Ibu Hendri"
+                  id_room: 1
+                  image: ""
+        required: false
+      responses:
+        "200":
+          description: Successful update data santri by id
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success update data santri by id
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /santri/delete/{id}:
+    delete:
+      tags:
+        - For Data Student
+      summary: DELETE DATA STUDENT
+      description: ""
+      operationId: DELETEDATASTUDENTBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful delete data santri
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success delete data santri
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+
+  #FOR DATA PEGAWAI
+  /pegawai:
+    get:
+      tags:
+        - For Data Pegawai
+      summary: GET DATA PEGAWAI ALL
+      description: ""
+      operationId: GETDATAPEGAWAIALL
+      parameters: []
+      responses:
+        "200":
+          description: Successful Get data pegawai
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success get data pegawai
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /pegawai/byid/{id}:
+    get:
+      tags:
+        - For Data Pegawai
+      summary: GET DATA PEGAWAI BY ID
+      description: ""
+      operationId: GETDATAPEGAWAIBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful Get data pegawai by id
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success get data pegawai by id
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /pegawai/{search}:
+    get:
+      tags:
+        - For Data Pegawai
+      summary: GET DATA PEGAWAI BY SEARCH
+      description: ""
+      operationId: GETDATAPEGAWAIBYSEARCH
+      parameters:
+        - name: search
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful Get data pegawai by search name
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success get data pegawai by search name
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /pegawai/delete/{id}:
+    delete:
+      tags:
+        - For Data Pegawai
+      summary: DELETE PEGAWAI BY ID
+      description: ""
+      operationId: DELETEPEGAWAIBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful delete data pegawai by id
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not Success delete data pegawai by id
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /pegawai/register:
+    post:
+      tags:
+        - For Data Pegawai
+      summary: REGISTER PEGAWAI
+      description: ""
+      operationId: REGISTERPEGAWAI
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name_pegawai:
+                  type: string
+                  description: "insert name"
+                sex:
+                  type: integer
+                  description: "1 for men, and 0 for women"
+                email:
+                  type: string
+                  format: email
+                  description: "insert name"
+                password:
+                  type: string
+                  description: "insert password"
+                role_id:
+                  type: integer
+                  description: "choose your role, 1. admin, 2. ustadz, 3. security"
+              required:
+                - name_pegawai
+                - sex
+                - email
+                - password
+                - role_id
+            examples:
+              example1:
+                value:
+                  name_pegawai: "Hendri Edited"
+                  sex: 1
+                  email: "hendripermana60@gmail.com123"
+                  password: "12345cekceksaja"
+                  role_id: 2
+      responses:
+        "200":
+          description: Successful create data pegawai
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success create data pegawai
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /pegawai/update/{id}:
+    put:
+      tags:
+        - For Data Pegawai
+      summary: UPDATE DATA PEGAWAI BY ID
+      description: ""
+      operationId: UPDATEDATAPEGAWAIBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name_pegawai:
+                  type: string
+                  description: "insert name"
+                sex:
+                  type: integer
+                  description: "1 for men, and 0 for women"
+                email:
+                  type: string
+                  format: email
+                  description: "insert name"
+                password:
+                  type: string
+                  description: "insert password"
+                role_id:
+                  type: integer
+                  description: "choose your role, 1. admin, 2. ustadz, 3. security"
+              required:
+                - name_pegawai
+                - sex
+                - email
+                - password
+                - role_id
+            examples:
+              example1:
+                value:
+                  name_pegawai: "Hendri Edited"
+                  sex: 1
+                  email: "hendripermana60@gmail.com123"
+                  password: "12345cekceksaja"
+                  role_id: 2
+        required: false
+      responses:
+        "200":
+          description: Successful update data pegawai by id
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success update data pegawai by id
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+
+  #FOR DATA KRITERIA & SUBKRITERIA
+  /kriteria:
+    get:
+      tags:
+        - For Data Kriteria and Sub-kriteria
+      summary: GET DATA KRITERIA AND SUB-KRITERIA ALL
+      description: ""
+      operationId: GETDATAKRITERIAALL
+      parameters: []
+      responses:
+        "200":
+          description: Successful Get data kriteria
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success get data kriteria
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /kriteria/byid/{id}:
+    get:
+      tags:
+        - For Data Kriteria and Sub-kriteria
+      summary: GET DATA KRITERIA BY ID
+      description: ""
+      operationId: GETDATAKRITERIABYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful Get data kriteria by id
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success get data kriteria by id
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /kriteria/update/{id}:
+    put:
+      tags:
+        - For Data Kriteria and Sub-kriteria
+      summary: UPDATE DATA KRITERIA BY ID
+      description: ""
+      operationId: UPDATEDATAKRITERIABYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                scale_priority:
+                  type: integer
+                  description: "Skala Prioritas"
+                name_kriteria:
+                  type: string
+                  description: "Name kriteria"
+                type:
+                  type: integer
+                  description: "1 Benefit, 2 cost"
+                subkriteria:
+                  type: string
+                  description: "Sub Kriteria array input"
+              required:
+                - scale_priority
+                - name_kriteria
+                - type
+                - subkriteria
+            examples:
+              example1:
+                value:
+                  scale_priority: 3
+                  name_kriteria: "Edited Kriteria"
+                  type: 1
+                  subkriteria:
+                    [
+                      { name_sub: "subkriteria-1", value: 1 },
+                      { name_sub: "subkriteria-2", value: 2 },
+                      { name_sub: "subkriteria-3", value: 3 },
+                    ]
+        required: false
+      responses:
+        "200":
+          description: Successful update data kriteria by id
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success update data kriteria by id
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /kriteria/delete/{id}:
+    delete:
+      tags:
+        - For Data Kriteria and Sub-kriteria
+      summary: DELETE KRITERIA AND SUB-KRITERIA BY ID
+      description: ""
+      operationId: DELETEKRITERIABYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful delete data kriteria by id
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success delete data kriteria by id
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /kriteria/create:
+    post:
+      tags:
+        - For Data Kriteria and Sub-kriteria
+      summary: REGISTER KRITERIA AND SUB-KRITERIA
+      description: ""
+      operationId: REGISTERKRITERIAANDSUBKRITERIA
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                scale_priority:
+                  type: integer
+                  description: "Skala Prioritas"
+                name_kriteria:
+                  type: string
+                  description: "Name kriteria"
+                type:
+                  type: integer
+                  description: "1 Benefit, 2 cost"
+                subkriteria:
+                  type: string
+                  description: "Sub Kriteria array input"
+              required:
+                - scale_priority
+                - name_kriteria
+                - type
+                - subkriteria
+            examples:
+              example1:
+                value:
+                  scale_priority: 3
+                  name_kriteria: "Edited Kriteria"
+                  type: 1
+                  subkriteria:
+                    [
+                      { name_sub: "subkriteria-1", value: 1 },
+                      { name_sub: "subkriteria-2", value: 2 },
+                      { name_sub: "subkriteria-3", value: 3 },
+                    ]
+        required: false
+      responses:
+        "200":
+          description: Successful create data kriteria
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success create data kriteria by id
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+
+  #FOR DATA PERMISSION
+  /permission/all:
+    get:
+      tags:
+        - For Data Permission
+      summary: GET DATA PERMISSION ALL
+      description: ""
+      operationId: GETDATAPERMISSIONALL
+      parameters: []
+      responses:
+        "200":
+          description: Successful get data permission
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success get data permission
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /permission/byid/{id}:
+    get:
+      tags:
+        - For Data Permission
+      summary: GET DATA PERMISSION BY ID
+      description: ""
+      operationId: GETDATAPERMISSIONBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful get data permission by id
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success get data permission by id
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /permission:
+    get:
+      tags:
+        - For Data Permission
+      summary: GET DATA PERMISSION BY CREATED
+      description: ""
+      operationId: GETDATAPERMISSIONBYCREATED
+      parameters: []
+      responses:
+        "200":
+          description: Successful get data permission by created
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success get data permission by created
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /permission/delete/{id}:
+    delete:
+      tags:
+        - For Data Permission
+      summary: DELETE PERMISSION BY ID
+      description: ""
+      operationId: DELETEPERMISSIONBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful delete data permission by id
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success delete data permission
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /permission/create:
+    post:
+      tags:
+        - For Data Permission
+      summary: CREATED PERMISSION
+      description: ""
+      operationId: CREATEDPERMISSION
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student_id:
+                  type: integer
+                  description: "Skala Prioritas"
+                start_permission:
+                  type: string
+                  format: date
+                  description: "Start Permission Date"
+                end_permission:
+                  type: string
+                  format: date
+                  description: "End Permission Date"
+                commented:
+                  type: string
+                  description: "Sub Kriteria array input"
+                kriteria:
+                  type: string
+                  description: "kriteria input"
+              required:
+                - student_id
+                - start_permission
+                - end_permission
+                - commented
+                - kriteria
+            examples:
+              example1:
+                value:
+                  student_id: 1
+                  start_permission: 2024-02-05 12:24:23
+                  end_permission: 2024-02-10 13:24:23
+                  commented: "Sakit karena demam"
+                  kriteria:
+                    [
+                      { id_kriteria: 1, id_subkriteria: 2 },
+                      { id_kriteria: 2, id_subkriteria: 6 },
+                      { id_kriteria: 3, id_subkriteria: 17 },
+                    ]
+        required: false
+      responses:
+        "200":
+          description: Successful create data permission
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success create data permission
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /permission/update/{id}:
+    put:
+      tags:
+        - For Data Permission
+      summary: UPDATE DATA PERMISSION BY ID
+      description: ""
+      operationId: UPDATEDATAPERMISSIONBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student_id:
+                  type: integer
+                  description: "Skala Prioritas"
+                start_permission:
+                  type: string
+                  format: date
+                  description: "Start Permission Date"
+                end_permission:
+                  type: string
+                  format: date
+                  description: "End Permission Date"
+                commented:
+                  type: string
+                  description: "Sub Kriteria array input"
+                kriteria:
+                  type: string
+                  description: "kriteria input"
+              required:
+                - student_id
+                - start_permission
+                - end_permission
+                - commented
+                - kriteria
+            examples:
+              example1:
+                value:
+                  student_id: 1
+                  start_permission: 2024-02-05 12:24:23
+                  end_permission: 2024-02-10 13:24:23
+                  commented: "Sakit karena demam"
+                  kriteria:
+                    [
+                      { id_kriteria: 1, id_subkriteria: 2 },
+                      { id_kriteria: 2, id_subkriteria: 6 },
+                      { id_kriteria: 3, id_subkriteria: 17 },
+                    ]
+        required: false
+      responses:
+        "200":
+          description: Successful update data permission by id
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success update data permission by id
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+
+  #FOR CALCULATED
+  /action/calculatedROC:
+    post:
+      tags:
+        - For Calculated
+      summary: CALCULATED ROC
+      description: ""
+      operationId: CALCULATEDROC
+      parameters: []
+      responses:
+        "200":
+          description: Successful calculated ROC
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success calculated ROC
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /action/calculatedCPI:
+    post:
+      tags:
+        - For Calculated
+      summary: CALCULATED CPI
+      description: ""
+      operationId: CALCULATEDCPI
+      parameters: []
+      responses:
+        "200":
+          description: Successful calculated CPI
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success calculated CPI
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /result/CPI/{id}:
+    get:
+      tags:
+        - For Calculated
+      summary: GET RESULT CPI AND ROC BY ID
+      description: ""
+      operationId: GETRESULTROCANDCPIBYID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful get calculated ROC & CPI by id
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success get calculated ROC & CPI by id
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /datareqByUser:
+    get:
+      tags:
+        - For Calculated
+      summary: Get Data Req By User
+      description: ""
+      operationId: GETDATAUSERREQ
+      parameters: []
+      responses:
+        "200":
+          description: Successful Get Data Req User by Created
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success get Data Req User by Created
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+
+  #FOR VALIDATION
+  /validation-go/{id}:
+    put:
+      tags:
+        - For Satpam Validation
+      summary: UPDATE VALIDATION PERMISSION GO BY ID
+      description: ""
+      operationId: UPDATEVALIDATIONPERMISSIONGO
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful update data permission status
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success update data permission status
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /validation-back/{id}:
+    put:
+      tags:
+        - For Satpam Validation
+      summary: UPDATE VALIDATION PERMISSION BACK BY ID
+      description: ""
+      operationId: UPDATEVALIDATIONPERMISSIONBACK
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful update data permission status back to pesantren
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success update data permission status back
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+  /validation/student:
+    get:
+      tags:
+        - For Satpam Validation
+      summary: GET DATA PERMISSION > 50%
+      description: ""
+      operationId: GETDATAPERMISSIONUPTO50
+      parameters: []
+      responses:
+        "200":
+          description: Successful get data permission up to cpi result 50%
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success get data permission up to cpi result 50%
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+
+  #FOR REPORT
+  /report:
+    get:
+      tags:
+        - For Report
+      summary: GET DATA FOR REPORT
+      description: ""
+      operationId: REPORTDATA
+      parameters: []
+      responses:
+        "200":
+          description: Successful get report
+          headers: {}
+          content: {}
+        "400":
+          description: Error or not success get report
+          headers: {}
+          content: {}
+        "500":
+          description: internal server error
+          headers: {}
+          content: {}
+      deprecated: false
+      security:
+        - bearerAuth: []
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security: []
+tags:
+  - name: For Dashboard
+    description: Endpoint beginning
+  - name: For Data Student
+    description: This API for handler Data Santri/ Wati
+  - name: For Student Room's
+    description: This API For Handler Students Room
+  - name: For Data Pegawai
+    description: This API For Handler Data Pegawai
+  - name: For Data Kriteria and Sub-kriteria
+    description: This API For Handler Kriteria
+  - name: For Data Permission
+    description: This API For Handler Permission
+  - name: For Report
+    description: This API For Handler Report
+  - name: For Calculated
+    description: This API For Handler Calculate ROC and CPI
+  - name: For Satpam Validation
+    description: This API For Handler Validate from satpam

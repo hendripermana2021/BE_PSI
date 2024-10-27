@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "password": "1234",
+    "database": "db_cpi",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "ZwKgVCpbCBhsAVWxrAAtATIUwrwVSmez",
+    "database": "railway",
+    "port": "49897",
+    "host": "viaduct.proxy.rlwy.net",
+    "url": "mysql://root:ZwKgVCpbCBhsAVWxrAAtATIUwrwVSmez@viaduct.proxy.rlwy.net:49897/railway",
+    "dialect": "mysql"
+  }
+}

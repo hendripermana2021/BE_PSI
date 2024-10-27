@@ -1,0 +1,128 @@
+"use strict";
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert(
+      "tbl_req_ajuan",
+      [
+        {
+          id_user: 2,
+          id_program: 1,
+          psi_result: 0,
+          commented: "Ajuan program pemerintahan",
+          jlh_dana: 0,
+          req_status: 1,
+          id_calculated: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_user: 3,
+          id_program: 1,
+          psi_result: 0,
+          commented: "Ajuan program pemerintahan",
+          jlh_dana: 0,
+          req_status: 1,
+          id_calculated: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_user: 4,
+          id_program: 1,
+          psi_result: 0,
+          commented: "Ajuan program pemerintahan",
+          jlh_dana: 0,
+          req_status: 1,
+          id_calculated: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_user: 5,
+          id_program: 1,
+          psi_result: 0,
+          commented: "Ajuan program pemerintahan",
+          jlh_dana: 0,
+          req_status: 1,
+          id_calculated: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_user: 6,
+          id_program: 1,
+          psi_result: 0,
+          commented: "Ajuan program pemerintahan",
+          jlh_dana: 0,
+          req_status: 1,
+          id_calculated: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_user: 7,
+          id_program: 1,
+          psi_result: 0,
+          commented: "Ajuan program pemerintahan",
+          jlh_dana: 0,
+          req_status: 1,
+          id_calculated: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_user: 8,
+          id_program: 1,
+          psi_result: 0,
+          commented: "Ajuan program pemerintahan",
+          jlh_dana: 0,
+          req_status: 1,
+          id_calculated: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_user: 9,
+          id_program: 1,
+          psi_result: 0,
+          commented: "Ajuan program pemerintahan",
+          jlh_dana: 0,
+          req_status: 1,
+          id_calculated: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_user: 10,
+          id_program: 1,
+          psi_result: 0,
+          commented: "Ajuan program pemerintahan",
+          jlh_dana: 0,
+          req_status: 1,
+          id_calculated: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+
+        {
+          id_user: 11,
+          id_program: 1,
+          psi_result: 0,
+          commented: "Ajuan program pemerintahan",
+          jlh_dana: 0,
+          req_status: 1,
+          id_calculated: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      {}
+    );
+  },
+
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete("tbl_req_ajuan", null, {});
+  },
+};
