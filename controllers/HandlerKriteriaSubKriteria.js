@@ -1,8 +1,214 @@
+import { ifGetEmptyResponse, responseJson } from "../function/myFunction.js";
 import db from "../models/index.js";
 
 const Kriteria = db.tbl_kriteria;
 const SubKriteria = db.tbl_subkriteria;
+
+//KRITERIA
 export const getDataKriteria = async (req, res) => {
+  try {
+    const kriteria = await Kriteria.findAll({});
+
+    if (kriteria.length === 0) {
+      return res.status(400).json({
+        code: 400,
+        status: true,
+        msg: "Data Not Found or Empty",
+      });
+    }
+
+    return res.status(200).json({
+      code: 200,
+      status: true,
+      msg: "All Data Kriteria Program",
+      data: kriteria,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: false,
+      msg: "Error: " + error.message,
+    });
+  }
+};
+
+export const getDataKriteriaById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const kriteria = await Kriteria.findOne({
+      where: { id: id },
+    });
+
+    if (!kriteria) {
+      return res.status(400).json({
+        code: 400,
+        status: true,
+        msg: "Data Not Found or Empty",
+      });
+    }
+
+    return res.status(200).json({
+      code: 200,
+      status: true,
+      msg: "Get data program",
+      data: kriteria,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: false,
+      msg: "Error: " + error.message,
+    });
+  }
+};
+
+//SUB KRITERIA
+export const getDataSubKriteriaById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const subkriteria = await SubKriteria.findAll({
+      where: { id: id },
+    });
+
+    if (subkriteria.length === 0) {
+      return res.status(400).json({
+        code: 400,
+        status: true,
+        msg: "Data Not Found or Empty",
+      });
+    }
+
+    return res.status(200).json({
+      code: 200,
+      status: true,
+      msg: "Get data subkriteria",
+      data: subkriteria,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: false,
+      msg: "Error: " + error.message,
+    });
+  }
+};
+
+export const createSubKriteria = async (req, res) => {
+  try {
+    const { name_sub, id_kriteria, description, value } = req.body;
+    const subKriteria = await SubKriteria.create({
+      name_sub,
+      id_kriteria,
+      description,
+      value,
+    });
+
+    const updateSub = await SubKriteria.findAll();
+    //END
+
+    return res.status(200).json({
+      code: 200,
+      status: true,
+      msg: "Success Created",
+      data: { subKriteria, updateSub },
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: false,
+      msg: "Error: " + error.message,
+    });
+  }
+};
+
+export const deleteSubKriteria = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const dataBefore = await SubKriteria.findOne({
+      where: { id },
+    });
+
+    if (!dataBefore) {
+      return res.status(400).json({
+        code: 400,
+        status: false,
+        msg: "Data Sub-Kriteria doesn't exist or has been deleted!",
+      });
+    }
+
+    await SubKriteria.destroy({
+      where: { id: dataBefore.id },
+    });
+
+    return res.status(200).json({
+      code: 200,
+      status: true,
+      msg: "Delete Data Sub0Kriteria Successfully",
+      data: dataBefore,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: true,
+      msg: "Delete Data Sub Kriteria Error",
+    });
+  }
+};
+
+export const updateSubKriteria = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name_sub, id_kriteria, description, value } = req.body;
+
+    const data_before = await SubKriteria.findOne({
+      where: { id },
+    });
+
+    if (!data_before) {
+      return res.status(400).json({
+        code: 400,
+        status: false,
+        msg: "Data Sub Kriteria doesn't exist or has been deleted!",
+      });
+    }
+
+    //IF SCALE PRIORITY  IS SAME WITH DATA BEFORE UPDATE END
+
+    await SubKriteria.update(
+      { name_sub, id_kriteria, description, value },
+      {
+        where: { id },
+      }
+    );
+
+    const data_update = await SubKriteria.findOne({
+      where: { id },
+    });
+
+    return res.status(200).json({
+      code: 200,
+      status: true,
+      msg: "Sub-Kriteria Success Updated",
+      data: { data_before, data_update },
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: true,
+      msg: "Sub-Kriteria Error for updated",
+    });
+  }
+};
+
+//GABUNGAN
+export const getDataKriteriaAndSub = async (req, res) => {
   try {
     const kriteria = await Kriteria.findAll({
       include: {
@@ -10,20 +216,34 @@ export const getDataKriteria = async (req, res) => {
         as: "sub_kriteria",
       },
     });
-    res.status(200).json({
+
+    if (kriteria.length === 0) {
+      return res.status(400).json({
+        code: 400,
+        status: true,
+        msg: "Data Not Found or Empty",
+      });
+    }
+
+    return res.status(200).json({
       code: 200,
       status: true,
-      msg: "data you searched Found",
+      msg: "All Data Kriteria Program",
       data: kriteria,
     });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: false,
+      msg: "Error: " + error.message,
+    });
   }
 };
 
-export const getDataKriteriaById = async (req, res) => {
-  const { id } = req.params;
+export const getDataKriteriaAndSubById = async (req, res) => {
   try {
+    const { id } = req.params;
     const kriteria = await Kriteria.findAll({
       where: { id: id },
       include: {
@@ -31,113 +251,83 @@ export const getDataKriteriaById = async (req, res) => {
         as: "sub_kriteria",
       },
     });
-    if (kriteria == "") {
+
+    if (kriteria.length === 0) {
       return res.status(400).json({
         code: 400,
-        status: false,
-        msg: "Kriteria Doesn't Exist",
+        status: true,
+        msg: "Data Not Found or Empty",
       });
     }
-    res.status(200).json({
+
+    return res.status(200).json({
       code: 200,
       status: true,
-      msg: "data you searched Found",
+      msg: "All Data Kriteria Program",
       data: kriteria,
     });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: false,
+      msg: "Error: " + error.message,
+    });
   }
 };
 
 export const createKriteriaDanSub = async (req, res) => {
-  const { scale_priority, name_kriteria, weight_score, type } = req.body;
-  const subKriteria = req.body.subkriteria;
-
   try {
-    const existingKriteria = await Kriteria.findOne({
-      where: { scale_priority: scale_priority },
-      include: {
-        model: SubKriteria,
-        as: "sub_kriteria",
-      },
-    });
+    const { name_kriteria, type, subkriteria } = req.body;
 
-    if (existingKriteria) {
+    // Validate the input
+    if (!name_kriteria || !type) {
       return res.status(400).json({
         code: 400,
         status: false,
-        msg: "Scale Priority is Duplicate, please change",
+        msg: "Invalid input: Please provide all required fields.",
       });
     }
 
-    const kriteriaCreate = await Kriteria.create({
-      scale_priority,
+    // Create the main Kriteria
+    const newKriteria = await Kriteria.create({
       name_kriteria,
-      weight_score,
+      weight_score: 0,
       type,
     });
 
-    const bulkCreateKriteriaDanSub = subKriteria.map((data) => ({
-      id_kriteria: kriteriaCreate.id,
-      name_sub: data.name_sub,
-      value: data.value,
+    // Prepare the subKriteria data for bulk creation
+    const subKriteriaData = subkriteria.map((sub) => ({
+      id_kriteria: newKriteria.id,
+      name_sub: sub.name_sub,
+      value: sub.value,
+      description: sub.description,
     }));
 
-    const addSubKriteria = await SubKriteria.bulkCreate(
-      bulkCreateKriteriaDanSub
-    );
+    // Bulk create subKriteria
+    const createdSubKriteria = await SubKriteria.bulkCreate(subKriteriaData);
 
-    // //Auto ROC for Kriteria
-    // const kriteria = await Kriteria.findAll({});
-    // const sortfill = kriteria.sort(
-    //   (a, b) => a.scale_priority - b.scale_priority
-    // );
+    // Fetch the updated list of all Kriteria (if needed)
+    const allKriteria = await Kriteria.findAll();
 
-    // let result = [];
-    // for (let i = 1; i <= sortfill.length; i++) {
-    //   for (let j = 1; j <= sortfill.length; j++) {
-    //     if (i <= j) {
-    //       result.push(1 / j);
-    //     } else {
-    //       result.push(0);
-    //     }
-    //   }
-    //   result;
-    // }
-
-    // const separatedArray = [];
-    // for (let i = 0; i < result.length; i += 6) {
-    //   separatedArray.push(result.slice(i, i + 6));
-    // }
-
-    // // Menjumlahkan setiap subarray dan membagi hasilnya dengan 6
-    // const sumAndAverage = separatedArray.map(
-    //   (subarray) => subarray.reduce((acc, num) => acc + num, 0) / 6
-    // );
-    // ///////////////////////////////////////////////////////////////////////////////---> END CODE METHOD ROC
-
-    // for (let i = 0; i < sortfill.length; i++) {
-    //   await Kriteria.update(
-    //     {
-    //       weight_score: sumAndAverage[i],
-    //     },
-    //     {
-    //       where: { id: sortfill[i].id },
-    //     }
-    //   );
-    // }
-
-    const updateKriteria = await Kriteria.findAll({});
-    //END
-
-    res.status(200).json({
+    // Return success response
+    return res.status(200).json({
       code: 200,
       status: true,
-      msg: "Create Data Kriteria and Sub Kriteria berhasil",
-      data: { updateKriteria, addSubKriteria },
+      msg: "Kriteria and SubKriteria successfully created.",
+      data: {
+        kriteria: newKriteria,
+        subKriteria: createdSubKriteria,
+        allKriteria,
+      },
     });
   } catch (error) {
-    console.log(error);
+    console.error("Error in createKriteriaDanSub:", error);
+    return res.status(500).json({
+      code: 500,
+      status: false,
+      msg: "Server error: " + error.message,
+    });
   }
 };
 
@@ -172,21 +362,24 @@ export const deleteKriteriaDanSub = async (req, res) => {
     return res.status(200).json({
       code: 200,
       status: true,
-      msg: "Delete Data Role Successfully",
+      msg: "Delete Data Kriteria Successfully",
       data: dataBefore,
     });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: true,
+      msg: "Delete Data Kriteria Error",
+    });
   }
 };
 
 export const updateKriteriaDanSub = async (req, res) => {
-  const { id } = req.params;
-  const { scale_priority, name_kriteria, type } = req.body;
-  const fromBodySubKriteria = req.body.subkriteria;
-
   try {
-    const getAllData = await Kriteria.findOne({ where: { scale_priority } });
+    const { id } = req.params;
+    const { name_kriteria, type } = req.body;
+    const fromBodySubKriteria = req.body.subkriteria;
 
     const data_before = await Kriteria.findOne({
       where: { id },
@@ -202,7 +395,7 @@ export const updateKriteriaDanSub = async (req, res) => {
       },
     });
 
-    if (data_before == 0) {
+    if (!data_before) {
       return res.status(400).json({
         code: 400,
         status: false,
@@ -210,66 +403,10 @@ export const updateKriteriaDanSub = async (req, res) => {
       });
     }
 
-    //IF SCALE PRIORITY  IS SAME WITH DATA BEFORE UPDATE
-
-    if (getAllData != 0) {
-      await Kriteria.update(
-        {
-          scale_priority: data_before.scale_priority,
-          weight_score: data_before.weight_score,
-        },
-
-        {
-          where: { id: getAllData.id },
-        }
-      );
-
-      await Kriteria.update(
-        {
-          scale_priority: getAllData.scale_priority,
-          name_kriteria,
-          type,
-          weight_score: getAllData.weight_score,
-        },
-        {
-          where: { id },
-        }
-      );
-
-      for (let i = 0; i < fromBodySubKriteria.length; i++) {
-        await SubKriteria.update(
-          {
-            name_sub: fromBodySubKriteria[i].name_sub,
-            value: fromBodySubKriteria[i].value,
-          },
-          {
-            where: { id: getDataSubKriteria[i].id },
-          }
-        );
-      }
-
-      const data_update = await Kriteria.findOne({
-        where: { id },
-        include: {
-          model: SubKriteria,
-          as: "sub_kriteria",
-        },
-      });
-
-      console.log("Jalan baru");
-
-      return res.status(200).json({
-        code: 200,
-        status: true,
-        msg: "Kriteria dan Sub-Kriteria Success Updated",
-        data: { data_before, data_update },
-      });
-    }
-
     //IF SCALE PRIORITY  IS SAME WITH DATA BEFORE UPDATE END
 
-    const kriteria = await Kriteria.update(
-      { scale_priority, name_kriteria, type },
+    await Kriteria.update(
+      { name_kriteria, type },
       {
         where: { id },
       }
@@ -281,6 +418,7 @@ export const updateKriteriaDanSub = async (req, res) => {
         {
           name_sub: fromBodySubKriteria[i].name_sub,
           value: fromBodySubKriteria[i].value,
+          description: fromBodySubKriteria[i].description,
         },
         {
           where: { id: getDataSubKriteria[i].id },
@@ -296,8 +434,6 @@ export const updateKriteriaDanSub = async (req, res) => {
       },
     });
 
-    console.log("Jalan Lama");
-
     return res.status(200).json({
       code: 200,
       status: true,
@@ -306,5 +442,10 @@ export const updateKriteriaDanSub = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: true,
+      msg: "Kriteria dan Sub-Kriteria Error for updated",
+    });
   }
 };

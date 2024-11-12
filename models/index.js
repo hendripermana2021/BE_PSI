@@ -47,28 +47,48 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.tbl_santri = require("../models/tbl_santri.js")(sequelize, Sequelize);
-db.tbl_pegawai = require("../models/tbl_pegawai.js")(sequelize, Sequelize);
-db.tbl_kriteria = require("../models/tbl_kriteria.js")(sequelize, Sequelize);
+db.tbl_users = require("../models/tbl_user.js")(sequelize, Sequelize);
+db.tbl_program = require("../models/tbl_program.js")(sequelize, Sequelize);
+db.tbl_req_ajuan = require("../models/tbl_req_ajuan.js")(sequelize, Sequelize);
 db.tbl_notification = require("../models/tbl_notification.js")(
   sequelize,
   Sequelize
 );
-db.tbl_req = require("../models/tbl_req.js")(sequelize, Sequelize);
-db.tbl_role = require("../models/tbl_role.js")(sequelize, Sequelize);
-db.tbl_room = require("../models/tbl_room.js")(sequelize, Sequelize);
+db.tbl_calculated = require("../models/tbl_calculated.js")(
+  sequelize,
+  Sequelize
+);
+db.tbl_psi = require("../models/tbl_psi.js")(sequelize, Sequelize);
+db.tbl_kriteria = require("../models/tbl_kriteria.js")(sequelize, Sequelize);
 db.tbl_subkriteria = require("../models/tbl_subkriteria.js")(
   sequelize,
   Sequelize
 );
-db.tbl_cpi = require("../models/tbl_cpi.js")(sequelize, Sequelize);
+db.tbl_role = require("../models/tbl_role.js")(sequelize, Sequelize);
+db.tbl_province = require("../models/tbl_province.js")(sequelize, Sequelize);
+db.tbl_region = require("../models/tbl_region.js")(sequelize, Sequelize);
+db.tbl_program_kriteria = require("../models/tbl_program_kriteria.js")(
+  sequelize,
+  Sequelize
+);
 
-db.tbl_req.hasMany(db.tbl_cpi, {
-  as: "cpi_data",
-  foreignKey: "id_order",
+//FOR API PROGRAMS
+
+db.tbl_program.hasMany(db.tbl_req_ajuan, {
+  foreignKey: "id_program",
+  as: "ajuan_program",
+  sourceKey: "id",
 });
 
-//for API KRITERIA & SUBKRITERIA
+db.tbl_program.hasMany(db.tbl_program_kriteria, {
+  foreignKey: "id_program",
+  as: "programs_kriteria",
+  sourceKey: "id",
+});
+
+//END API PROGRAMS
+
+//for API KRITERIA, SUBKRITERIA
 db.tbl_kriteria.hasMany(db.tbl_subkriteria, {
   foreignKey: "id_kriteria",
   as: "sub_kriteria",
@@ -77,78 +97,122 @@ db.tbl_kriteria.hasMany(db.tbl_subkriteria, {
 
 //END API KRITERIA & SUBKRITERIA
 
-//for API SANTRI
-db.tbl_santri.belongsTo(db.tbl_room, {
-  as: "nameroom",
-  foreignKey: "id_room",
-});
-
-db.tbl_santri.belongsTo(db.tbl_req, {
-  foreignKey: "id",
-  as: "cpi",
-  sourceKey: "student_id",
-});
-
-db.tbl_room.belongsTo(db.tbl_pegawai, {
-  as: "walikamar",
-  foreignKey: "id_ustadz",
-});
-
-//END API SANTRI
-
-//for API PEGAWAI
-db.tbl_pegawai.belongsTo(db.tbl_role, {
+//for API USERS
+db.tbl_users.belongsTo(db.tbl_role, {
   as: "role",
   foreignKey: "role_id",
+  targetKey: "id", // Example of a custom target key in tbl_role
 });
 
-//END API PEGAWAI
-
-//API FOR ROOMS
-db.tbl_room.belongsTo(db.tbl_pegawai, {
-  as: "namaustadz",
-  foreignKey: "id_ustadz",
-});
-
-//END API ROOMS
-
-//FOR API PERMISSION
-db.tbl_req.belongsTo(db.tbl_santri, {
-  foreignKey: "student_id",
-  as: "namasantri",
-});
-
-db.tbl_req.belongsTo(db.tbl_pegawai, {
-  foreignKey: "val_go_by",
-  as: "val_go_name",
+db.tbl_users.belongsTo(db.tbl_province, {
+  as: "province",
+  foreignKey: "province_id",
   targetKey: "id",
 });
 
-db.tbl_req.belongsTo(db.tbl_pegawai, {
-  foreignKey: "created_by",
-  as: "created_permission",
+db.tbl_users.belongsTo(db.tbl_region, {
+  as: "region",
+  foreignKey: "region_id",
   targetKey: "id",
 });
 
-db.tbl_req.belongsTo(db.tbl_pegawai, {
-  foreignKey: "val_back_by",
-  as: "val_back_name",
-  targetKey: "id",
+db.tbl_users.hasMany(db.tbl_notification, {
+  foreignKey: "user_id",
+  as: "notification",
+  sourceKey: "id",
 });
+
+db.tbl_users.hasMany(db.tbl_req_ajuan, {
+  foreignKey: "id_user",
+  as: "request_ajuan",
+  sourceKey: "id",
+});
+
+//END API USERS
+
+//FOR API REQUEST AJUAN
+db.tbl_req_ajuan.belongsTo(db.tbl_province, {
+  foreignKey: "id_provinces",
+  as: "province",
+  sourceKey: "id",
+});
+
+db.tbl_req_ajuan.belongsTo(db.tbl_province, {
+  foreignKey: "id_region",
+  as: "region",
+  sourceKey: "id",
+});
+
+db.tbl_req_ajuan.belongsTo(db.tbl_program, {
+  foreignKey: "id_program",
+  as: "program",
+  sourceKey: "id",
+});
+
+db.tbl_req_ajuan.hasMany(db.tbl_psi, {
+  foreignKey: "id_order",
+  as: "psi_data",
+  sourceKey: "id",
+});
+
+db.tbl_req_ajuan.hasMany(db.tbl_psi, {
+  as: "cpi_data",
+  foreignKey: "id_order",
+});
+
 //END API PERMISSION
 
-//for API METHOD CPI and ROC
-db.tbl_cpi.belongsTo(db.tbl_kriteria, {
+//RELATION API FOR KRITERIA & SUBKRITERIA
+
+db.tbl_kriteria.hasMany(db.tbl_psi, {
+  foreignKey: "id_order",
+  as: "order",
+  sourceKey: "id",
+});
+
+//END API
+
+//for API METHOD PSI and ROC
+db.tbl_psi.belongsTo(db.tbl_kriteria, {
   foreignKey: "id_kriteria",
   as: "kriteria",
   targetKey: "id",
 });
 
-db.tbl_cpi.belongsTo(db.tbl_subkriteria, {
+db.tbl_psi.belongsTo(db.tbl_subkriteria, {
   foreignKey: "id_subkriteria",
   as: "subkriteria",
   targetKey: "id",
 });
-//END API METHOD CPI and ROC
+
+//END API METHOD PSI and ROC
+
+//RELATION PROVINCE
+db.tbl_region.hasMany(db.tbl_province, {
+  foreignKey: "id",
+  as: "province",
+  sourceKey: "id_province",
+});
+
+db.tbl_province.hasMany(db.tbl_region, {
+  foreignKey: "id_province",
+  as: "region",
+  sourceKey: "id",
+});
+
+//END RELATION PROVINCE
+
+//PROGRAM WITH KRITERIA
+db.tbl_program_kriteria.belongsTo(db.tbl_program, {
+  foreignKey: "id",
+  as: "program",
+  sourceKey: "id_program",
+});
+
+db.tbl_program_kriteria.belongsTo(db.tbl_kriteria, {
+  foreignKey: "id_kriteria",
+  as: "kriteria",
+  sourceKey: "id",
+});
 
 module.exports = db;

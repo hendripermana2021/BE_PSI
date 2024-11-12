@@ -1,16 +1,17 @@
 import db from "../models/index.js";
 
-const Req = db.tbl_req;
-const Santri = db.tbl_santri;
+const Req = db.tbl_req_ajuan;
+const Program = db.tbl_program;
 
 export const generateReport = async (req, res) => {
   try {
-    const report = await Santri.findAll({
+    const report = await Program.findAll({
+      where: { id_program: req.params.id },
       include: {
         model: Req,
-        as: "cpi",
+        as: "program",
         where: {
-          status_req: true,
+          status_req: false,
         },
       },
     });

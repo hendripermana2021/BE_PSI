@@ -1,26 +1,32 @@
 import db from "../models/index.js";
 
-const Pegawai = db.tbl_pegawai;
-const Santri = db.tbl_santri;
+const Users = db.tbl_users;
 const Kriteria = db.tbl_kriteria;
-const Room = db.tbl_room;
 const Notif = db.tbl_notification;
+const Program = db.tbl_program;
+const Province = db.tbl_province;
+const Region = db.tbl_region;
+const Req = db.tbl_req_ajuan;
 
 export const dashboard = async (req, res) => {
   try {
     const currentUser = req.user;
     const user_id = req.user.userId;
     if (currentUser.role_id == 1) {
-      const santri = (await Santri.findAll()).length;
-      const pegawai = (await Pegawai.findAll()).length;
+      const user = (await Users.findAll()).length;
+      const total_programs = (await Program.findAll()).length;
+      const province = (await Province.findAll()).length;
+      const region = (await Region.findAll()).length;
+      const ajuan = (await Req.findAll()).length;
+      const programs = await Program.findAll({
+        include: { model: Req, as: "ajuan_program" },
+      });
       const kriteria = (await Kriteria.findAll()).length;
-      const room = (await Room.findAll()).length;
       const notif = await Notif.findAll();
-      const santriNonActive = (
-        await Santri.findAll({ where: { status: false } })
-      ).length;
-      const santriActive = (await Santri.findAll({ where: { status: true } }))
-        .length;
+      let total_dana;
+      for (let i = 0; i < programs.length; i++) {
+        total_dana += programs[i].total_dana_alokasi;
+      }
 
       const sortfill_notif = notif.sort((b, a) => a.id - b.id);
 
@@ -30,105 +36,39 @@ export const dashboard = async (req, res) => {
         msg: "Dashboard for Admin",
         data: {
           currentUser,
-          santri,
-          pegawai,
+          programs,
+          total_programs,
+          province,
+          region,
+          ajuan,
           kriteria,
-          room,
-          santriNonActive,
-          santriActive,
+          user,
           sortfill_notif,
+          total_dana,
         },
       });
     } else if (currentUser.role_id == 2) {
-      const rooms = await Room.findAll({
-        where: { id_ustadz: currentUser.userId },
+      const total_ajuan_programs = await Req.findAll({
+        where: { id_user: user_id },
       });
 
-      if (rooms.length === 0) {
-        return res.status(404).json({
-          code: 404,
-          status: false,
-          msg: "Ustadz has no assigned rooms",
-        });
+      for (let i = 0; i < total_ajuan_programs.length; i++) {
+        total_dana += total_ajuan_programs[i].jlh_dana;
       }
 
-      const room = rooms[0]; // Assuming an Ustadz has only one room. Adjust as needed.
-
-      const santri = (
-        await Santri.findAll({
-          where: { id_room: room.id },
-          include: {
-            model: Room,
-            as: "nameroom",
-            where: { id_ustadz: user_id },
-            include: {
-              model: Pegawai,
-              as: "walikamar",
-            },
-          },
-        })
-      ).length;
-
-      const pegawai = (await Pegawai.findAll({ where: { role_id: "3" } }))
-        .length;
-      const santriNonActive = (
-        await Santri.findAll({
-          where: { id_room: room.id, status: false },
-          include: {
-            model: Room,
-            as: "nameroom",
-            where: { id_ustadz: user_id },
-            include: {
-              model: Pegawai,
-              as: "walikamar",
-            },
-          },
-        })
-      ).length;
-      const santriActive = (
-        await Santri.findAll({
-          where: { id_room: room.id, status: true },
-          include: {
-            model: Room,
-            as: "nameroom",
-            where: { id_ustadz: user_id },
-            include: {
-              model: Pegawai,
-              as: "walikamar",
-            },
-          },
-        })
-      ).length;
+      const notif = await Notif.findAll({ where: { id_user: user_id } });
+      const sortfill_notif = notif.sort((b, a) => a.id - b.id);
 
       res.status(200).json({
         code: 200,
         status: true,
-        msg: "Dashboard For Ustadz/ah",
+        msg: "Dashboard for Regional Administration",
         data: {
           currentUser,
-          santri,
-          pegawai,
-          room,
-          santriNonActive,
-          santriActive,
+          total_ajuan_programs,
+          total_dana,
+          sortfill_notif,
         },
-      });
-    } else if (currentUser.role_id == 3) {
-      const santri = (await Santri.findAll()).length;
-      const pegawai = (await Pegawai.findAll()).length;
-
-      const santriNonActive = (
-        await Santri.findAll({ where: { status: false } })
-      ).length;
-
-      const santriActive = (await Santri.findAll({ where: { status: true } }))
-        .length;
-
-      res.status(200).json({
-        code: 200,
-        status: true,
-        msg: "Dashboard Kemaanan/ Satpam",
-        data: { santri, pegawai, santriActive, santriNonActive },
       });
     } else {
       res.status(200).json({

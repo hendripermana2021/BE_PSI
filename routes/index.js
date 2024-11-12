@@ -7,34 +7,31 @@ import yaml from "js-yaml";
 import {
   handleGetRoot,
   Login,
-  getEmailPegawai,
+  getEmailUsers,
   Logout,
   whoAmI,
-  deletePegawai,
-  RegisterPegawai,
-  getDataPegawaiId,
-  getDataPegawai,
-  updateDataPegawai,
-  getDataPegawaiBy,
+  deleteUsers,
+  RegisterUsers,
+  getDataUsersId,
+  getDataUsers,
+  updateDataUsers,
+  getDataUsersBy,
   refreshToken,
 } from "../controllers/HandlerUsers.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 import {
-  RegisterSantri,
-  deleteSantri,
-  getDataSantri,
-  getDataSantriById,
-  imageAppeared,
-  updateDataSantri,
-} from "../controllers/HandlerDataSantri.js";
-import {
-  createRoom,
-  deleteRoom,
-  getDataRoom,
-  getDataRoomById,
-  getRoomBy,
-  updateRoom,
-} from "../controllers/HandlerRoom.js";
+  createDataProgramKriteria,
+  createPrograms,
+  deleteDataProgramsKriteria,
+  deleteProgram,
+  getDataKriteriaByPrograms,
+  getDataPrograms,
+  getDataProgramsById,
+  getDataProgramsWithKriteria,
+  getDataProgramsWithKriteriaById,
+  updateProgram,
+} from "../controllers/HandlerDataPrograms.js";
+
 import {
   createRole,
   deleteRole,
@@ -49,34 +46,52 @@ import {
 } from "../controllers/HandlerNotification.js";
 import {
   CalculatedROC,
-  calculatedCPIByIdCalculated,
-  calculatedCPIisNull,
-  getReqCpiNull,
+  calculatedPSIByIdCalculated,
+  calculatedPSIisNull,
+  getReqPSINull,
 } from "../controllers/HandlerAction.js";
 import {
   createKriteriaDanSub,
+  createSubKriteria,
   deleteKriteriaDanSub,
+  deleteSubKriteria,
   getDataKriteria,
+  getDataKriteriaAndSub,
+  getDataKriteriaAndSubById,
   getDataKriteriaById,
+  getDataSubKriteriaById,
   updateKriteriaDanSub,
+  updateSubKriteria,
 } from "../controllers/HandlerKriteriaSubKriteria.js";
-import {
-  getDataPermissionById,
-  getDataPermissionByUserId,
-  addPermission,
-  updatePermission,
-  deletePermission,
-  getDataPermissionForValidation,
-  getDataPermissionOnlyAccepted,
-  getDataPermissionAll,
-  getApproval,
-} from "../controllers/HandlerPermission.js";
+
 import { dashboard } from "../controllers/HandlerDashboard.js";
-import {
-  validationGo,
-  validationBack,
-} from "../controllers/HandlerValidate.js";
+
 import { generateReport } from "../controllers/HandlerReport.js";
+import {
+  createProvince,
+  createRegion,
+  createRegionDanSub,
+  deleteRegion,
+  deleteRegionDanSub,
+  getDataProvince,
+  getDataProvinceById,
+  getDataRegion,
+  getDataRegionAndProvince,
+  getDataRegionById,
+  getDataRegionByProvince,
+  updateProvince,
+  updateRegion,
+  updateRegionDanSub,
+} from "../controllers/HandlerRegional.js";
+
+import {
+  createAjuan,
+  deleteAjuan,
+  getDataAjuanById,
+  getDataAjuanByProgram,
+  getDataAjuanOnlyAccepted,
+  updateAjuan,
+} from "../controllers/HandlerAjuan.js";
 
 export const prefix = "/v1/api/";
 
@@ -106,65 +121,148 @@ router.use(
 
 //ROUTES FOR GLOBAL
 router.get(prefix, handleGetRoot);
-router.get(prefix + "me", verifyToken, whoAmI);
 router.post(prefix + "login", Login);
-router.get(prefix + "token", refreshToken);
 router.delete(prefix + "logout", verifyToken, Logout);
+router.get(prefix + "me", verifyToken, whoAmI);
+router.get(prefix + "dashboard", verifyToken, dashboard);
+router.get(prefix + "token", refreshToken);
+
+//API PEGAWAI
+router.get(prefix + "users/email", verifyToken, getEmailUsers);
+router.get(prefix + "users/byid/:id", verifyToken, getDataUsersId);
+router.get(prefix + "users/:search", verifyToken, getDataUsersBy);
+router.get(prefix + "users", verifyToken, getDataUsers);
+router.delete(prefix + "users/delete/:id", verifyToken, deleteUsers);
+router.post(prefix + "users/register", verifyToken, RegisterUsers);
+router.put(prefix + "users/update/:id", verifyToken, updateDataUsers);
+
 router.post(prefix + "action/calculatedROC", verifyToken, CalculatedROC);
-router.post(prefix + "action/calculatedCPI", verifyToken, calculatedCPIisNull);
-router.get(prefix + "result/CPI/:id", verifyToken, calculatedCPIByIdCalculated);
+// router.post(prefix + "action/calculatedCPI",verifyToken, calculatedPSIisNull);
+router.get(prefix + "result/CPI/:id", verifyToken, calculatedPSIByIdCalculated);
 router.get(prefix + "report", verifyToken, generateReport);
-router.get(prefix + "datareqByUser", verifyToken, getReqCpiNull);
+router.get(prefix + "datareqByUser", verifyToken, getReqPSINull);
 
 //ROUTES FOR ADMINISTRATOR
 //API FOR DASHBOARD
-router.get(prefix + "dashboard", verifyToken, dashboard);
 
-//API KRITERIA DAN SUB-KRITERIA
+//API KRITERIA
 router.get(prefix + "kriteria", verifyToken, getDataKriteria);
 router.get(prefix + "kriteria/byid/:id", verifyToken, getDataKriteriaById);
+
+//API KRITERIA DAN SUB-KRITERIA
+router.get(prefix + "kriteria-sub", verifyToken, getDataKriteriaAndSub);
+router.get(
+  prefix + "kriteria-sub/byid/:id",
+  verifyToken,
+  getDataKriteriaAndSubById
+);
+router.put(
+  prefix + "kriteria-sub/update/:id",
+  verifyToken,
+  updateKriteriaDanSub
+);
+router.post(prefix + "kriteria-sub/create", verifyToken, createKriteriaDanSub);
 router.delete(
-  prefix + "kriteria/delete/:id",
+  prefix + "kriteria-sub/delete/:id",
   verifyToken,
   deleteKriteriaDanSub
 );
-router.put(prefix + "kriteria/update/:id", verifyToken, updateKriteriaDanSub);
-router.post(prefix + "kriteria/create", verifyToken, createKriteriaDanSub);
+// END API KRITERIA
+
+//AJUAN
+router.get(prefix + "ajuan", verifyToken, getDataAjuanOnlyAccepted);
+router.get(prefix + "ajuan/byid/:id", verifyToken, getDataAjuanById);
+router.delete(prefix + "ajuan/delete/:id", verifyToken, deleteAjuan);
+router.post(prefix + "ajuan/register", verifyToken, createAjuan);
+router.put(prefix + "ajuan/update/:id", verifyToken, updateAjuan);
+router.get(prefix + "ajuan/program/:id", verifyToken, getDataAjuanByProgram);
+//END AJUAN
+
+//API SUB-KRITERIA
+router.get(
+  prefix + "sub-kriteria/byid/:id",
+  verifyToken,
+  getDataSubKriteriaById
+);
+router.delete(
+  prefix + "sub-kriteria/delete/:id",
+  verifyToken,
+  deleteSubKriteria
+);
+router.put(prefix + "sub-kriteria/update/:id", verifyToken, updateSubKriteria);
+router.post(prefix + "sub-kriteria/create", verifyToken, createSubKriteria);
 //END API KRITERIA DAN SUB-KRITERIA
 
-//API PEGAWAI
-router.get(prefix + "pegawai/email", verifyToken, getEmailPegawai);
-router.get(prefix + "pegawai/byid/:id", verifyToken, getDataPegawaiId);
-router.get(prefix + "pegawai/:search", verifyToken, getDataPegawaiBy);
-router.get(prefix + "pegawai", verifyToken, getDataPegawai);
-router.delete(prefix + "pegawai/delete/:id", verifyToken, deletePegawai);
-router.post(prefix + "pegawai/register", verifyToken, RegisterPegawai);
-router.put(prefix + "pegawai/update/:id", verifyToken, updateDataPegawai);
+//API PROGRAMS
+router.get(prefix + "program", verifyToken, getDataPrograms);
+router.get(prefix + "program/byid/:id", verifyToken, getDataProgramsById);
+router.post(prefix + "program/create", verifyToken, createPrograms);
+router.put(prefix + "program/update/:id", verifyToken, updateProgram);
+router.delete(prefix + "program/delete/:id", verifyToken, deleteProgram);
+// END
 
-//API SANTRI
-router.get(prefix + "santri", verifyToken, getDataSantri);
-router.get(prefix + "santri/byid/:id", verifyToken, getDataSantriById);
+//API FOR GET PROGRAM WITH ATTRIBUTE KRITERIA
+
+router.get(
+  prefix + "program-kriteria/:id",
+  verifyToken,
+  getDataProgramsWithKriteriaById
+);
+
+router.get(
+  prefix + "program-kriteria/program/:id",
+  verifyToken,
+  getDataKriteriaByPrograms
+);
+router.get(
+  prefix + "program-kriteria",
+  verifyToken,
+  getDataProgramsWithKriteria
+);
 router.post(
-  prefix + "santri/register",
+  prefix + "program-kriteria/create",
   verifyToken,
-  upload.single("image"),
-  RegisterSantri
+  createDataProgramKriteria
 );
-router.put(
-  prefix + "santri/update/:id",
+router.delete(
+  prefix + "program-kriteria/delete/:id",
   verifyToken,
-  upload.single("image"),
-  updateDataSantri
+  deleteDataProgramsKriteria
 );
-router.delete(prefix + "santri/delete/:id", verifyToken, deleteSantri);
+
+//END API GET PROGRAM WITH ATTRIBUTE KRITERIA
+
+//API REGIONAL
+// router.get(prefix + "regional",verifyToken, getDataRegion);
+router.get(prefix + "regional", verifyToken, getDataRegion);
+router.get(prefix + "regional/byid/:id", verifyToken, getDataRegionById);
+router.get(
+  prefix + "regional/byprovince/:id",
+  verifyToken,
+  getDataRegionByProvince
+);
+router.post(prefix + "regional/create", verifyToken, createRegion);
+router.put(prefix + "regional/update/:id", verifyToken, updateRegion);
+router.delete(prefix + "regional/delete/:id", verifyToken, deleteRegion);
+
+//API PROVINCE
+router.get(prefix + "province", verifyToken, getDataProvince);
+router.delete(prefix + "province/delete/:id", verifyToken, deleteRegionDanSub);
+router.post(prefix + "province/create", verifyToken, createProvince);
+router.put(prefix + "province/update/:id", verifyToken, updateProvince);
+router.get(prefix + "province/byid/:id", verifyToken, getDataProvinceById);
+
+//API PROVINCE & REGIONAL
+router.get(prefix + "province-sub", verifyToken, getDataRegionAndProvince);
+router.post(prefix + "province-sub/create", verifyToken, createRegionDanSub);
+router.delete(
+  prefix + "province-sub/delete:id",
+  verifyToken,
+  deleteRegionDanSub
+);
+router.put(prefix + "province-sub/update/:id", verifyToken, updateRegionDanSub);
 
 //API ROOM
-router.get(prefix + "room", verifyToken, getDataRoom);
-router.get(prefix + "room/byid/:id", verifyToken, getDataRoomById);
-router.get(prefix + "room/:search", verifyToken, getRoomBy);
-router.post(prefix + "room/create", verifyToken, createRoom);
-router.put(prefix + "room/update/:id", verifyToken, updateRoom);
-router.delete(prefix + "room/delete/:id", verifyToken, deleteRoom);
 
 //API ROLE
 router.get(prefix + "role", verifyToken, getDataRole);
@@ -177,28 +275,5 @@ router.delete(prefix + "role/delete/:id", verifyToken, deleteRole);
 //API NOTIFICATION
 router.get(prefix + "notif", verifyToken, getDataNotification);
 router.get(prefix + "notif/byid/:id", verifyToken, getDataNotificationById);
-
-//API PERMISSION
-router.get(
-  prefix + "permission/notRejected",
-  verifyToken,
-  getDataPermissionOnlyAccepted
-);
-router.get(prefix + "permission/byid/:id", verifyToken, getDataPermissionById);
-router.get(prefix + "approval", verifyToken, getApproval);
-router.get(prefix + "permission", verifyToken, getDataPermissionByUserId);
-router.get(prefix + "permission/all", verifyToken, getDataPermissionAll);
-router.put(prefix + "permission/update/:id", verifyToken, updatePermission);
-router.delete(prefix + "permission/delete/:id", verifyToken, deletePermission);
-router.post(prefix + "permission/create", verifyToken, addPermission);
-
-//ROUTES FOR PETUGAS KEAMANAN
-router.put(prefix + "validation-go/:id", verifyToken, validationGo);
-router.put(prefix + "validation-back/:id", verifyToken, validationBack);
-router.get(
-  prefix + "validation/student",
-  verifyToken,
-  getDataPermissionForValidation
-);
 
 export default router;
