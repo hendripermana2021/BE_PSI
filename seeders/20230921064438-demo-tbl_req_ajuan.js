@@ -7,6 +7,7 @@ module.exports = {
       "tbl_req_ajuans",
       [
         {
+          id_users: 1,
           id_province: 1,
           id_region: 1,
           id_program: 1,
@@ -19,6 +20,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id_users: 2,
           id_province: 1,
           id_region: 2,
           id_program: 1,
@@ -31,6 +33,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id_users: 3,
           id_province: 1,
           id_region: 3,
           id_program: 1,
@@ -43,6 +46,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id_users: 4,
           id_province: 1,
           id_region: 4,
           id_program: 1,
@@ -55,6 +59,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id_users: 5,
           id_province: 1,
           id_region: 5,
           id_program: 1,
@@ -67,6 +72,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id_users: 6,
           id_province: 1,
           id_region: 6,
           id_program: 1,
@@ -79,6 +85,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id_users: 7,
           id_province: 1,
           id_region: 7,
           id_program: 1,
@@ -91,6 +98,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id_users: 8,
           id_province: 1,
           id_region: 8,
           id_program: 1,
@@ -103,6 +111,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id_users: 9,
           id_province: 1,
           id_region: 9,
           id_program: 1,
@@ -116,6 +125,7 @@ module.exports = {
         },
 
         {
+          id_users: 10,
           id_province: 1,
           id_region: 10,
           id_program: 1,

@@ -37,8 +37,8 @@ export const getDataNotificationById = async (req, res) => {
       where: { user_id: req.user.userId, id },
     });
     if (notification == "") {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: true,
         msg: "Notification Doesn't Exist",
       });
@@ -81,7 +81,7 @@ export const deleteNotification = async (req, res) => {
   const parsedDataProfile = JSON.parse(JSON.stringify(dataBefore));
 
   if (!parsedDataProfile) {
-    return res.status(400).json({
+    return res.status(404).json({
       code: 400,
       status: false,
       msg: "Data Notification doesn't exist or has been deleted!",

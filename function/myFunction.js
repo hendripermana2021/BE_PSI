@@ -1,29 +1,20 @@
-export function responseJson(code, data, status, msg) {
-  return res.status(code).json({
-    code,
-    status,
-    msg,
-    data,
-  });
-}
+// Fungsi untuk menghitung ranking
+export function assignRanking(data) {
+  // Urutkan data berdasarkan psi_result dari yang tertinggi ke terendah
+  const sortedData = data.sort((a, b) => b.psi_result - a.psi_result);
 
-export function ifGetEmptyResponse(data, msg) {
-  if (data.length === 0 || data === "") {
-    return responseJson(404, data, false, msg);
+  // Assign ranking
+  let rank = 1;
+  for (let i = 0; i < sortedData.length; i++) {
+    if (i > 0 && sortedData[i].psi_result === sortedData[i - 1].psi_result) {
+      // Jika psi_result sama dengan sebelumnya, assign rank yang sama
+      sortedData[i].rank = sortedData[i - 1].rank;
+    } else {
+      // Jika berbeda, assign rank baru
+      sortedData[i].rank = rank;
+      rank++;
+    }
   }
-}
 
-export function ifDataDuplicated(data, msg) {
-  if (data.length > 0) {
-    return responseJson(400, data, false, msg);
-  }
-}
-
-export function errorResponse(code, data, status, msg) {
-  return {
-    code,
-    status,
-    msg,
-    data,
-  };
+  return sortedData;
 }

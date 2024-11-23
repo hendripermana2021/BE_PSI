@@ -17,6 +17,7 @@ import {
   updateDataUsers,
   getDataUsersBy,
   refreshToken,
+  getDataUsersQueryRoleandRegion,
 } from "../controllers/HandlerUsers.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 import {
@@ -45,10 +46,8 @@ import {
   getDataNotificationById,
 } from "../controllers/HandlerNotification.js";
 import {
-  CalculatedROC,
-  calculatedPSIByIdCalculated,
+  CalculatedROCForArrangeMoney,
   calculatedPSIisNull,
-  getReqPSINull,
 } from "../controllers/HandlerAction.js";
 import {
   createKriteriaDanSub,
@@ -132,15 +131,26 @@ router.get(prefix + "users/email", verifyToken, getEmailUsers);
 router.get(prefix + "users/byid/:id", verifyToken, getDataUsersId);
 router.get(prefix + "users/:search", verifyToken, getDataUsersBy);
 router.get(prefix + "users", verifyToken, getDataUsers);
+router.get(
+  prefix + "users/condition/query",
+  verifyToken,
+  getDataUsersQueryRoleandRegion
+);
 router.delete(prefix + "users/delete/:id", verifyToken, deleteUsers);
 router.post(prefix + "users/register", verifyToken, RegisterUsers);
 router.put(prefix + "users/update/:id", verifyToken, updateDataUsers);
 
-router.post(prefix + "action/calculatedROC", verifyToken, CalculatedROC);
-// router.post(prefix + "action/calculatedCPI",verifyToken, calculatedPSIisNull);
-router.get(prefix + "result/CPI/:id", verifyToken, calculatedPSIByIdCalculated);
+router.get(
+  prefix + "action/calculatedPSI/:programId",
+  verifyToken,
+  calculatedPSIisNull
+);
+router.get(
+  prefix + "action/calculatedROC/:programId",
+  verifyToken,
+  CalculatedROCForArrangeMoney
+);
 router.get(prefix + "report", verifyToken, generateReport);
-router.get(prefix + "datareqByUser", verifyToken, getReqPSINull);
 
 //ROUTES FOR ADMINISTRATOR
 //API FOR DASHBOARD
@@ -148,6 +158,12 @@ router.get(prefix + "datareqByUser", verifyToken, getReqPSINull);
 //API KRITERIA
 router.get(prefix + "kriteria", verifyToken, getDataKriteria);
 router.get(prefix + "kriteria/byid/:id", verifyToken, getDataKriteriaById);
+
+//API SUB KRITERIA
+//TODO : make sub-kriteria by kriteria ID
+router.get(prefix + "kriteria-sub", verifyToken, getDataKriteriaAndSub);
+
+//END API SUB KRITERIA
 
 //API KRITERIA DAN SUB-KRITERIA
 router.get(prefix + "kriteria-sub", verifyToken, getDataKriteriaAndSub);

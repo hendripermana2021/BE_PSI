@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   tbl_req_ajuan.init(
     {
+      id_users: DataTypes.INTEGER,
       id_province: DataTypes.INTEGER,
       id_region: DataTypes.INTEGER,
       id_program: DataTypes.INTEGER,
@@ -21,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       commented: DataTypes.STRING,
       req_status: DataTypes.BOOLEAN,
       id_calculated: DataTypes.INTEGER,
+      rank: DataTypes.INTEGER,
     },
     {
       sequelize,

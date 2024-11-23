@@ -28,8 +28,8 @@ export const getDataRoleById = async (req, res) => {
       where: { id },
     });
     if (!role) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Role Doesn't Exist",
       });
@@ -59,8 +59,8 @@ export const getRoleBy = async (req, res) => {
       },
     });
     if (!role) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Role Doesn't Existing",
       });
@@ -92,8 +92,8 @@ export const createRole = async (req, res) => {
     });
 
     if (!checkRole) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data role has been existed!",
       });
@@ -127,8 +127,8 @@ export const deleteRole = async (req, res) => {
     });
 
     if (!dataBefore) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Role doesn't exist or has been deleted!",
       });
@@ -160,8 +160,8 @@ export const updateRole = async (req, res) => {
     const { role_name } = req.body;
 
     if (!role_name) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Role Name is required",
       });
@@ -172,8 +172,8 @@ export const updateRole = async (req, res) => {
     });
 
     if (!dataBefore) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Role doesn't exist or has been deleted!",
       });

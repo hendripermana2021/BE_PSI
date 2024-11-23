@@ -28,7 +28,7 @@ paths:
                 email:
                   type: string
                   format: email
-                  description: "hendripermana60@gmail.com"
+                  description: "sitikumalasari@gmail.com"
                 password:
                   type: string
                   description: "User's password"
@@ -38,7 +38,7 @@ paths:
             examples:
               example1:
                 value:
-                  email: "hendripermana60@gmail.com"
+                  email: "sitikumalasari@gmail.com"
                   password: "12345"
       responses:
         "200":
@@ -254,7 +254,7 @@ paths:
             examples:
               example1:
                 value:
-                  name_province: "Hendri Permana Putra"
+                  name_province: "Siti Kumalasari Putra"
                   sex: 1
                   fathername: "Ayah Hendri"
                   mothername: "Ibu Hendri"
@@ -325,7 +325,7 @@ paths:
             examples:
               example1:
                 value:
-                  name_province: "Hendri Permana Putra"
+                  name_province: "Siti Kumalasari Putra"
                   sex: 1
                   fathername: "Ayah Hendri"
                   mothername: "Ibu Hendri"
@@ -532,7 +532,7 @@ paths:
                 value:
                   name_pegawai: "Hendri Edited"
                   sex: 1
-                  email: "hendripermana60@gmail.com123"
+                  email: "sitikumalasari@gmail.com123"
                   password: "12345cekceksaja"
                   role_id: 2
       responses:
@@ -598,7 +598,7 @@ paths:
                 value:
                   name_pegawai: "Hendri Edited"
                   sex: 1
-                  email: "hendripermana60@gmail.com123"
+                  email: "sitikumalasari@gmail.com123"
                   password: "12345cekceksaja"
                   role_id: 2
         required: false

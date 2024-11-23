@@ -18,8 +18,8 @@ export const getDataPrograms = async (req, res) => {
     });
 
     if (program.length === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Doesn't Exist",
       });
@@ -84,8 +84,8 @@ export const getDataProgramsWithKriteriaById = async (req, res) => {
     });
 
     if (program.length === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Doesn't Exist",
       });
@@ -131,8 +131,8 @@ export const getDataKriteriaByPrograms = async (req, res) => {
     });
 
     if (program.length === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Doesn't Exist",
       });
@@ -173,8 +173,8 @@ export const getDataProgramsWithKriteria = async (req, res) => {
     });
 
     if (program.length === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Doesn't Exist",
       });
@@ -207,8 +207,8 @@ export const deleteDataProgramsKriteria = async (req, res) => {
     });
 
     if (!program) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Doesn't Exist",
       });
@@ -238,8 +238,8 @@ export const createDataProgramKriteria = async (req, res) => {
 
     // Validate the input
     if (!id_program || !kriteria) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Invalid input: Please provide all required fields.",
       });
@@ -286,8 +286,8 @@ export const getDataProgramsById = async (req, res) => {
     });
 
     if (program === "" || program === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Doesn't Exist",
       });
@@ -340,8 +340,8 @@ export const deleteProgram = async (req, res) => {
     });
 
     if (!dataBefore) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data not found",
       });
@@ -380,8 +380,8 @@ export const updateProgram = async (req, res) => {
     });
 
     if (!data_before) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Santri doesn't exist or has been deleted!",
       });
@@ -474,8 +474,8 @@ export const updateProgram = async (req, res) => {
 //     }
 
 //     if (data_before == null) {
-//       return res.status(400).json({
-//         code: 400,
+//       return res.status(404).json({
+//         code: 404,
 //         status: false,
 //         msg: "Data Santri doesn't exist or has been deleted!",
 //       });

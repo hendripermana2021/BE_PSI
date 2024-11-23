@@ -1,4 +1,3 @@
-import { ifGetEmptyResponse, responseJson } from "../function/myFunction.js";
 import db from "../models/index.js";
 
 const Province = db.tbl_province;
@@ -34,8 +33,8 @@ export const getDataProvinceById = async (req, res) => {
     });
 
     if (!province) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: true,
         msg: "Data cant get cause deleted or something",
       });
@@ -92,8 +91,8 @@ export const deleteProvince = async (req, res) => {
     });
 
     if (!dataBefore) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Province doesn't exist or has been deleted!",
       });
@@ -129,8 +128,8 @@ export const updateProvince = async (req, res) => {
     });
 
     if (!data_before) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Province doesn't exist or has been deleted!",
       });
@@ -174,8 +173,8 @@ export const updateRegion = async (req, res) => {
     });
 
     if (!data_before) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Region doesn't exist or has been deleted!",
       });
@@ -216,8 +215,8 @@ export const deleteRegion = async (req, res) => {
     });
 
     if (!dataBefore) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Province doesn't exist or has been deleted!",
       });
@@ -301,8 +300,8 @@ export const getDataRegionById = async (req, res) => {
     });
 
     if (!region) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Region doesn't exist or has been deleted!",
       });
@@ -332,8 +331,8 @@ export const getDataRegionByProvince = async (req, res) => {
     });
 
     if (!region) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Region doesn't exist or has been deleted!",
       });
@@ -364,6 +363,14 @@ export const getDataRegionAndProvince = async (req, res) => {
         as: "region",
       },
     });
+
+    if (province.length === 0) {
+      return res.status(404).json({
+        code: 404,
+        status: true,
+        msg: "No Data Province",
+      });
+    }
 
     return res.status(200).json({
       code: 200,
@@ -431,8 +438,8 @@ export const deleteRegionDanSub = async (req, res) => {
     });
 
     if (!dataBefore) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Province doesn't exist or has been deleted!",
       });
@@ -477,8 +484,8 @@ export const updateRegionDanSub = async (req, res) => {
     });
     console.log(data_before);
     if (!data_before) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Province doesn't exist or has been deleted!",
       });

@@ -9,6 +9,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      id_users: {
+        type: Sequelize.INTEGER,
+      },
       id_province: {
         type: Sequelize.INTEGER,
       },
@@ -31,6 +34,9 @@ module.exports = {
         type: Sequelize.BOOLEAN,
       },
       id_calculated: {
+        type: Sequelize.INTEGER,
+      },
+      rank: {
         type: Sequelize.INTEGER,
       },
       createdAt: {

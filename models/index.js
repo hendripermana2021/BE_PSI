@@ -123,21 +123,27 @@ db.tbl_users.hasMany(db.tbl_notification, {
 });
 
 db.tbl_users.hasMany(db.tbl_req_ajuan, {
-  foreignKey: "id_user",
+  foreignKey: "id_region",
   as: "request_ajuan",
-  sourceKey: "id",
+  targetKey: "region_id",
 });
 
 //END API USERS
 
 //FOR API REQUEST AJUAN
-db.tbl_req_ajuan.belongsTo(db.tbl_province, {
-  foreignKey: "id_provinces",
-  as: "province",
+db.tbl_req_ajuan.belongsTo(db.tbl_users, {
+  foreignKey: "id_users",
+  as: "users",
   sourceKey: "id",
 });
 
 db.tbl_req_ajuan.belongsTo(db.tbl_province, {
+  foreignKey: "id_province",
+  as: "province",
+  sourceKey: "id",
+});
+
+db.tbl_req_ajuan.belongsTo(db.tbl_region, {
   foreignKey: "id_region",
   as: "region",
   sourceKey: "id",

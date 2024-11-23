@@ -104,8 +104,8 @@ export const Login = async (req, res) => {
     const match = await bcrypt.compare(req.body.password, user.password);
 
     if (!match) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Incorrect password",
       });
@@ -204,8 +204,8 @@ export const Logout = async (req, res) => {
     });
 
     if (!user) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "User not found",
       });
@@ -247,8 +247,8 @@ export const deleteUsers = async (req, res) => {
     });
 
     if (!checkData) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Users Account doesn't exist or has been deleted!",
       });
@@ -304,12 +304,14 @@ export const RegisterUsers = async (req, res) => {
   }
 };
 
-export const getDataUsers = async (req, res) => {
+export const getDataUsersQueryRoleandRegion = async (req, res) => {
   try {
     const role = req.query.role;
+    const regionId = req.query.regionId;
     const user = await Users.findAll({
       where: {
-        role_id: role,
+        role_id: role || [1, 2, 3],
+        region_id: regionId,
       },
       include: [
         {
@@ -327,13 +329,40 @@ export const getDataUsers = async (req, res) => {
       ],
     });
 
-    if (!user) {
-      return res.status(400).json({
-        code: 400,
-        status: false,
-        msg: "Data Users Not Found",
-      });
-    }
+    return res.status(200).json({
+      code: 200,
+      status: true,
+      msg: "This Data All Users",
+      data: user,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: false,
+      msg: "Error registering " + error.message,
+    });
+  }
+};
+
+export const getDataUsers = async (req, res) => {
+  try {
+    const user = await Users.findAll({
+      include: [
+        {
+          model: Role,
+          as: "role",
+        },
+        {
+          model: Province,
+          as: "province",
+        },
+        {
+          model: Region,
+          as: "region",
+        },
+      ],
+    });
 
     return res.status(200).json({
       code: 200,
@@ -358,8 +387,8 @@ export const getDataUsersId = async (req, res) => {
       where: { id },
     });
     if (!user) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Doesn't Exist",
       });
@@ -391,8 +420,8 @@ export const updateDataUsers = async (req, res) => {
     });
 
     if (!data_before) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Users doesn't exist or has been deleted!",
       });
@@ -446,8 +475,8 @@ export const getDataUsersBy = async (req, res) => {
       },
     });
     if (!user) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Users Doesn't Existing",
       });

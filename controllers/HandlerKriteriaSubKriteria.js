@@ -1,4 +1,3 @@
-import { ifGetEmptyResponse, responseJson } from "../function/myFunction.js";
 import db from "../models/index.js";
 
 const Kriteria = db.tbl_kriteria;
@@ -10,8 +9,8 @@ export const getDataKriteria = async (req, res) => {
     const kriteria = await Kriteria.findAll({});
 
     if (kriteria.length === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: true,
         msg: "Data Not Found or Empty",
       });
@@ -41,8 +40,8 @@ export const getDataKriteriaById = async (req, res) => {
     });
 
     if (!kriteria) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: true,
         msg: "Data Not Found or Empty",
       });
@@ -73,8 +72,8 @@ export const getDataSubKriteriaById = async (req, res) => {
     });
 
     if (subkriteria.length === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: true,
         msg: "Data Not Found or Empty",
       });
@@ -134,8 +133,8 @@ export const deleteSubKriteria = async (req, res) => {
     });
 
     if (!dataBefore) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Sub-Kriteria doesn't exist or has been deleted!",
       });
@@ -171,8 +170,8 @@ export const updateSubKriteria = async (req, res) => {
     });
 
     if (!data_before) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Sub Kriteria doesn't exist or has been deleted!",
       });
@@ -218,8 +217,8 @@ export const getDataKriteriaAndSub = async (req, res) => {
     });
 
     if (kriteria.length === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: true,
         msg: "Data Not Found or Empty",
       });
@@ -253,8 +252,8 @@ export const getDataKriteriaAndSubById = async (req, res) => {
     });
 
     if (kriteria.length === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: true,
         msg: "Data Not Found or Empty",
       });
@@ -281,9 +280,9 @@ export const createKriteriaDanSub = async (req, res) => {
     const { name_kriteria, type, subkriteria } = req.body;
 
     // Validate the input
-    if (!name_kriteria || !type) {
-      return res.status(400).json({
-        code: 400,
+    if (!name_kriteria) {
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Invalid input: Please provide all required fields.",
       });
@@ -344,8 +343,8 @@ export const deleteKriteriaDanSub = async (req, res) => {
     });
 
     if (!dataBefore) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Role doesn't exist or has been deleted!",
       });
@@ -396,8 +395,8 @@ export const updateKriteriaDanSub = async (req, res) => {
     });
 
     if (!data_before) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Kriteria doesn't exist or has been deleted!",
       });

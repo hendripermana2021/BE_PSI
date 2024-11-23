@@ -11,7 +11,7 @@
     "start": "node ./index.js",
     "tbl_user": "npx sequelize-cli model:generate --name tbl_user --attributes name:string,sex:string,email:string,province_id:integer,region_id:integer,password:string,real_password:string,role_id:integer,accesstoken:text,refreshtoken:text",
     "tbl_program": "npx sequelize-cli model:generate --name tbl_program --attributes name_program:string,total_dana_alokasi:float",
-    "tbl_req_ajuan": "npx sequelize-cli model:generate --name tbl_req_ajuan --attributes id_province:integer,id_region:integer,id_program:integer,jlh_dana:float,psi_result:float,commented:string,req_status:boolean,id_calculated:integer",
+    "tbl_req_ajuan": "npx sequelize-cli model:generate --name tbl_req_ajuan --attributes id_users:integer,id_province:integer,id_region:integer,id_program:integer,jlh_dana:float,psi_result:float,commented:string,req_status:boolean,rank:integer,id_calculated:integer",
     "tbl_kriteria": "npx sequelize-cli model:generate --name tbl_kriteria --attributes name_kriteria:string,weight_score:float,type:boolean",
     "tbl_subkriteria": "npx sequelize-cli model:generate --name tbl_subkriteria --attributes name_sub:string,id_kriteria:integer,description:text,value:float",
     "tbl_psi": "npx sequelize-cli model:generate --name tbl_psi --attributes id_kriteria:integer,id_subkriteria:integer,comment:text,id_order:integer",

@@ -7,9 +7,9 @@ module.exports = {
       "tbl_users",
       [
         {
-          name: "Hendri Permana",
+          name: "Siti Kumalasari",
           sex: 1,
-          email: "hendripermana60@gmail.com",
+          email: "sitikumalasari@gmail.com",
           password: await bcrypt.hash("12345", 10),
           real_password: "12345",
           province_id: 1,

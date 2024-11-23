@@ -14,35 +14,43 @@ const Region = db.tbl_region;
 export const getDataAjuanOnlyAccepted = async (req, res) => {
   try {
     const req = await Req.findAll({
-      include: [
-        {
-          model: Program,
-          as: "program",
-        },
-        {
-          model: Users,
-          as: "name_user",
-        },
-        {
-          model: Psi,
-          as: "psi_data",
-          include: [
-            {
-              model: Kriteria,
-              as: "kriteria",
-            },
-            {
-              model: Sub_Kriteria,
-              as: "subkriteria",
-            },
-          ],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: Users,
+      //     as: "users",
+      //   },
+      //   {
+      //     model: Program,
+      //     as: "program",
+      //   },
+      //   {
+      //     model: Province,
+      //     as: "province",
+      //   },
+      //   {
+      //     model: Region,
+      //     as: "region",
+      //   },
+      //   {
+      //     model: Psi,
+      //     as: "psi_data",
+      //     include: [
+      //       {
+      //         model: Kriteria,
+      //         as: "kriteria",
+      //       },
+      //       {
+      //         model: Sub_Kriteria,
+      //         as: "subkriteria",
+      //       },
+      //     ],
+      //   },
+      // ],
     });
 
     if (req.length === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Permission Doesn't Exist",
       });
@@ -71,12 +79,20 @@ export const getDataAjuanById = async (req, res) => {
       where: { id: id },
       include: [
         {
+          model: Users,
+          as: "users",
+        },
+        {
           model: Program,
           as: "program",
         },
         {
-          model: Users,
-          as: "name_user",
+          model: Province,
+          as: "province",
+        },
+        {
+          model: Region,
+          as: "region",
         },
         {
           model: Psi,
@@ -96,8 +112,8 @@ export const getDataAjuanById = async (req, res) => {
     });
 
     if (req.length === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Ajuan Doesn't Exist",
       });
@@ -120,12 +136,20 @@ export const getDataAjuanByProgram = async (req, res) => {
       where: { id_program: id },
       include: [
         {
+          model: Users,
+          as: "users",
+        },
+        {
           model: Program,
           as: "program",
         },
         {
-          model: Users,
-          as: "name_user",
+          model: Province,
+          as: "province",
+        },
+        {
+          model: Region,
+          as: "region",
         },
         {
           model: Psi,
@@ -142,16 +166,11 @@ export const getDataAjuanByProgram = async (req, res) => {
           ],
         },
       ],
+      order: [
+        ["rank", "ASC"], // Order by cpi_result in ascending order
+      ],
     });
 
-    if (req.length === 0) {
-      return res.status(400).json({
-        code: 400,
-        status: false,
-        msg: "Ajuan Doesn't Exist",
-        data: [],
-      });
-    }
     res.status(200).json({
       code: 200,
       status: true,
@@ -174,12 +193,20 @@ export const getDataAjuanByProvinceAndRegion = async (req, res) => {
         order: [["id", "DESC"]],
         include: [
           {
+            model: Users,
+            as: "users",
+          },
+          {
             model: Program,
             as: "program",
           },
           {
             model: Province,
-            as: "name_user",
+            as: "province",
+          },
+          {
+            model: Region,
+            as: "region",
           },
           {
             model: Psi,
@@ -200,7 +227,7 @@ export const getDataAjuanByProvinceAndRegion = async (req, res) => {
     } else {
       req = await Req.findAll({
         where: {
-          id_user: user.userId,
+          id_users: user.userId,
           id_calculated: null,
         },
         order: [["id", "DESC"]],
@@ -211,7 +238,7 @@ export const getDataAjuanByProvinceAndRegion = async (req, res) => {
           },
           {
             model: Users,
-            as: "name_user",
+            as: "users",
           },
           {
             model: Psi,
@@ -232,8 +259,8 @@ export const getDataAjuanByProvinceAndRegion = async (req, res) => {
     }
 
     if (req.length === 0) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Permission Doesn't Exist",
       });
@@ -251,7 +278,7 @@ export const getDataAjuanByProvinceAndRegion = async (req, res) => {
 };
 
 export const createAjuan = async (req, res) => {
-  const { id_program, commented, id_user } = req.body;
+  const { id_program, commented, id_users, id_province, id_region } = req.body;
   const psi = req.body.kriteria;
   const user = req.user;
   try {
@@ -259,13 +286,13 @@ export const createAjuan = async (req, res) => {
     const reqCheck = await Req.findOne({
       where: {
         id_program,
-        id_user: id_user || user.userId,
+        id_users: id_users || user.userId,
       },
     });
 
     if (reqCheck) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Req Ajuan has been created, you can requested again.",
       });
@@ -275,7 +302,9 @@ export const createAjuan = async (req, res) => {
     //MAKE REQUEST
     if (user.role_id === 1) {
       req = await Req.create({
-        id_user,
+        id_users,
+        id_province,
+        id_region,
         id_program,
         psi_result: 0,
         commented,
@@ -285,7 +314,9 @@ export const createAjuan = async (req, res) => {
       });
     } else {
       req = await Req.create({
-        id_user: user.userId,
+        id_users: user.userId,
+        id_province: user.provinceId,
+        id_region: user.regionId,
         id_program,
         psi_result: 0,
         commented,
@@ -306,8 +337,16 @@ export const createAjuan = async (req, res) => {
           as: "program",
         },
         {
+          model: Province,
+          as: "province",
+        },
+        {
+          model: Region,
+          as: "region",
+        },
+        {
           model: Users,
-          as: "name_user",
+          as: "users",
         },
         {
           model: Psi,
@@ -377,8 +416,16 @@ export const updateAjuan = async (req, res) => {
           as: "program",
         },
         {
+          model: Province,
+          as: "province",
+        },
+        {
+          model: Region,
+          as: "region",
+        },
+        {
           model: Users,
-          as: "name_user",
+          as: "users",
         },
         {
           model: Psi,
@@ -408,8 +455,8 @@ export const updateAjuan = async (req, res) => {
     });
 
     if (!getAjuan) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data Kriteria doesn't exist or has been deleted!",
       });
@@ -453,7 +500,7 @@ export const updateAjuan = async (req, res) => {
         },
         {
           model: Users,
-          as: "name_user",
+          as: "users",
         },
         {
           model: Psi,
@@ -497,8 +544,8 @@ export const deleteAjuan = async (req, res) => {
     });
 
     if (!req) {
-      return res.status(400).json({
-        code: 400,
+      return res.status(404).json({
+        code: 404,
         status: false,
         msg: "Data permission doesn't exist or has been deleted!",
       });
@@ -614,7 +661,7 @@ export const deleteAjuan = async (req, res) => {
 
 //     if (req.length == 0) {
 //       res.status(400).json({
-//         code: 400,
+//         code: 404,
 //         status: false,
 //         msg: "Data Req not exist",
 //       });
@@ -721,7 +768,7 @@ export const deleteAjuan = async (req, res) => {
 
 //     if (req.length == 0) {
 //       res.status(400).json({
-//         code: 400,
+//         code: 404,
 //         status: false,
 //         msg: "Data Req not exist",
 //       });
@@ -786,7 +833,7 @@ export const deleteAjuan = async (req, res) => {
 
 //     if (result.length == 0) {
 //       res.status(400).json({
-//         code: 400,
+//         code: 404,
 //         status: false,
 //         msg: "Data Req not exist",
 //       });
