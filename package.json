@@ -37,7 +37,7 @@
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:undo": "npx sequelize-cli db:migrate:undo:all",
     "db:drop": "npx sequelize-cli db:drop",
-    "db:restart": "npx sequelize-cli db:drop db:create db:migrate db:seed"
+    "db:restart": "pnpm db:drop && pnpm db:create && pnpm db:migrate && pnpm db:seed && pnpm dev"
   },
   "keywords": [],
   "author": "",

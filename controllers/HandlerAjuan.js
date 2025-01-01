@@ -133,7 +133,63 @@ export const getDataAjuanByProgram = async (req, res) => {
   const { id } = req.params;
   try {
     const req = await Req.findAll({
-      where: { id_program: id },
+      where: { id_program: id, req_status: false },
+      include: [
+        {
+          model: Users,
+          as: "users",
+        },
+        {
+          model: Program,
+          as: "program",
+        },
+        {
+          model: Province,
+          as: "province",
+        },
+        {
+          model: Region,
+          as: "region",
+        },
+        {
+          model: Psi,
+          as: "psi_data",
+          include: [
+            {
+              model: Kriteria,
+              as: "kriteria",
+            },
+            {
+              model: Sub_Kriteria,
+              as: "subkriteria",
+            },
+          ],
+        },
+      ],
+      order: [
+        ["rank", "ASC"], // Order by cpi_result in ascending order
+      ],
+    });
+
+    res.status(200).json({
+      code: 200,
+      status: true,
+      msg: "data you searched Found",
+      data: req,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getDataAjuanByProgramForGenerated = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const req = await Req.findAll({
+      where: {
+        id_program: id,
+        req_status: true,
+      },
       include: [
         {
           model: Users,
@@ -287,6 +343,7 @@ export const createAjuan = async (req, res) => {
       where: {
         id_program,
         id_users: id_users || user.userId,
+        id_calculated: null,
       },
     });
 
@@ -470,25 +527,14 @@ export const updateAjuan = async (req, res) => {
     );
 
     for (let i = 0; i < reasonPermission.length; i++) {
-      let psiData = dataPsi.find(
-        (cpi) => cpi.id_kriteria === reasonPermission[i].id_kriteria
-      );
-      if (!psiData) {
-        psiData = await Psi.create({
-          id_kriteria: reasonPermission[i].id_kriteria,
+      await Psi.update(
+        {
           id_subkriteria: reasonPermission[i].id_subkriteria,
-          id_order: id,
-        });
-      } else {
-        await Psi.update(
-          {
-            id_subkriteria: reasonPermission[i].id_subkriteria,
-          },
-          {
-            where: { id: dataPsi[i].id },
-          }
-        );
-      }
+        },
+        {
+          where: { id: dataPsi[i].id },
+        }
+      );
     }
 
     const dataUpdated = await Req.findOne({

@@ -2,8 +2,49 @@ import db from "../models/index.js";
 
 const Kriteria = db.tbl_kriteria;
 const SubKriteria = db.tbl_subkriteria;
+const Program_Kriteria = db.tbl_program_kriteria;
+const Program = db.tbl_program;
 
 //KRITERIA
+export const getDataKriteriaProgram = async (req, res) => {
+  try {
+    const program_kriteria = await Program_Kriteria.findAll({
+      include: [
+        {
+          model: Program,
+          as: "program",
+        },
+        {
+          model: Kriteria,
+          as: "kriteria",
+        },
+      ],
+    });
+
+    if (program_kriteria.length === 0) {
+      return res.status(404).json({
+        code: 404,
+        status: true,
+        msg: "Data Not Found or Empty",
+      });
+    }
+
+    return res.status(200).json({
+      code: 200,
+      status: true,
+      msg: "All Data Kriteria Program",
+      data: program_kriteria,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      code: 500,
+      status: false,
+      msg: "Error: " + error.message,
+    });
+  }
+};
+
 export const getDataKriteria = async (req, res) => {
   try {
     const kriteria = await Kriteria.findAll({});

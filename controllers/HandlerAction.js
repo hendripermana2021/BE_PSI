@@ -9,6 +9,8 @@ const Program = db.tbl_program;
 const Users = db.tbl_users;
 const Province = db.tbl_province;
 const Region = db.tbl_region;
+const Program_Kriteria = db.tbl_program_kriteria;
+const Calculated = db.tbl_calculated;
 
 export const CalculatedROCForArrangeMoney = async (req, res) => {
   try {
@@ -106,11 +108,16 @@ export const CalculatedROCForArrangeMoney = async (req, res) => {
       resultArrangeMoney.length
     );
 
+    const id_calculated = await Calculated.create({
+      createdBy: req.user.userId,
+    });
+
     for (let i = 0; i < requestAjuan.length; i++) {
       await Req.update(
         {
           jlh_dana: resultArrangeMoney[i].money,
           req_status: false,
+          id_calculated: id_calculated.id,
         },
         {
           where: { id: resultArrangeMoney[i].id },
@@ -192,7 +199,21 @@ export const calculatedPSIisNull = async (_req, res) => {
       });
     }
 
-    const kriteria = await Kriteria.findAll();
+    const kriteria = await Program_Kriteria.findAll({
+      where: {
+        id_program: programId,
+      },
+      include: [
+        {
+          model: Program,
+          as: "program",
+        },
+        {
+          model: Kriteria,
+          as: "kriteria",
+        },
+      ],
+    });
 
     ///////////////////////////////////////////////////////////////---> START CODE METHOD CPI
     //------> STEP 1
@@ -247,7 +268,7 @@ export const calculatedPSIisNull = async (_req, res) => {
 
     let getProfitAndCost = [];
     for (let i = 0; i < kriteria.length; i++) {
-      const result = kriteria[i].type;
+      const result = kriteria[i].kriteria.type;
       getProfitAndCost.push(result);
     }
 
@@ -388,7 +409,7 @@ export const calculatedPSIisNull = async (_req, res) => {
     console.log("Hasil Penentuan Bobot Kriteria : ", resultBobotValue);
 
     for (let i = 0; i < kriteria.length; i++) {
-      await Kriteria.update(
+      await Program_Kriteria.update(
         {
           weight_score: resultBobotValue[i],
         },
@@ -491,6 +512,8 @@ export const calculatedPSIisNull = async (_req, res) => {
         resultMatriks: resultFindResultArray,
         resultRows: rowSums,
         result: getReq1,
+        ajuan: req,
+        kriteria,
       },
     });
   } catch (error) {

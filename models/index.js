@@ -210,9 +210,9 @@ db.tbl_province.hasMany(db.tbl_region, {
 
 //PROGRAM WITH KRITERIA
 db.tbl_program_kriteria.belongsTo(db.tbl_program, {
-  foreignKey: "id",
+  foreignKey: "id_program",
   as: "program",
-  sourceKey: "id_program",
+  sourceKey: "id",
 });
 
 db.tbl_program_kriteria.belongsTo(db.tbl_kriteria, {

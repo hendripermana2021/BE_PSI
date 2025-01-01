@@ -6,13 +6,22 @@ module.exports = {
       "tbl_programs",
       [
         {
-          name_program: "Program 1",
+          name_program:
+            "PROGRAM PEMBINAAN DAN PENGEMBANGAN KETAHANAN EKONOMI, SOSIAL, DAN BUDAYA",
           total_dana_alokasi: 10000000000,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name_program: "Program 2",
+          name_program:
+            "PROGRAM PEMBERDAYAAN DAN PENGAWASAN ORGANISASI KEMASYARAKATAN",
+          total_dana_alokasi: 10000000000,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name_program:
+            "PROGRAM PENGUATAN IDEOLOGI PANCASILA DAN KARAKTER KEBANGSAAN",
           total_dana_alokasi: 10000000000,
           createdAt: new Date(),
           updatedAt: new Date(),

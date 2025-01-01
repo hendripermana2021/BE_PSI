@@ -58,6 +58,7 @@ import {
   getDataKriteriaAndSub,
   getDataKriteriaAndSubById,
   getDataKriteriaById,
+  getDataKriteriaProgram,
   getDataSubKriteriaById,
   updateKriteriaDanSub,
   updateSubKriteria,
@@ -88,6 +89,7 @@ import {
   deleteAjuan,
   getDataAjuanById,
   getDataAjuanByProgram,
+  getDataAjuanByProgramForGenerated,
   getDataAjuanOnlyAccepted,
   updateAjuan,
 } from "../controllers/HandlerAjuan.js";
@@ -157,6 +159,7 @@ router.get(prefix + "report", verifyToken, generateReport);
 
 //API KRITERIA
 router.get(prefix + "kriteria", verifyToken, getDataKriteria);
+// router.get(prefix + "program-kriteria", verifyToken, getDataKriteriaProgram);
 router.get(prefix + "kriteria/byid/:id", verifyToken, getDataKriteriaById);
 
 //API SUB KRITERIA
@@ -192,6 +195,11 @@ router.delete(prefix + "ajuan/delete/:id", verifyToken, deleteAjuan);
 router.post(prefix + "ajuan/register", verifyToken, createAjuan);
 router.put(prefix + "ajuan/update/:id", verifyToken, updateAjuan);
 router.get(prefix + "ajuan/program/:id", verifyToken, getDataAjuanByProgram);
+router.get(
+  prefix + "ajuan/program/generated/:id",
+  verifyToken,
+  getDataAjuanByProgramForGenerated
+);
 //END AJUAN
 
 //API SUB-KRITERIA

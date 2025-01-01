@@ -7,6 +7,7 @@ const Program = db.tbl_program;
 const Province = db.tbl_province;
 const Region = db.tbl_region;
 const Req = db.tbl_req_ajuan;
+const Role = db.tbl_role;
 
 export const dashboard = async (req, res) => {
   try {
@@ -18,15 +19,40 @@ export const dashboard = async (req, res) => {
       const province = (await Province.findAll()).length;
       const region = (await Region.findAll()).length;
       const ajuan = (await Req.findAll()).length;
+      const ajuanApprove = (
+        await Req.findAll({
+          where: {
+            req_status: false,
+          },
+        })
+      ).length;
+      const totalRole = (await Role.findAll()).length;
       const programs = await Program.findAll({
         include: { model: Req, as: "ajuan_program" },
       });
       const kriteria = (await Kriteria.findAll()).length;
       const notif = await Notif.findAll();
-      let total_dana;
+
+      const totalDanaAjuanApprove = await Req.findAll({
+        where: {
+          req_status: false,
+        },
+      });
+
+      let total_dana_approve = 0;
+      for (let i = 0; i < totalDanaAjuanApprove.length; i++) {
+        total_dana_approve += totalDanaAjuanApprove[i].jlh_dana;
+      }
+
+      let total_dana = 0;
       for (let i = 0; i < programs.length; i++) {
         total_dana += programs[i].total_dana_alokasi;
       }
+
+      const percentageAjuanWithApprove = (
+        (total_dana_approve / total_dana) *
+        100
+      ).toFixed(2);
 
       const sortfill_notif = notif.sort((b, a) => a.id - b.id);
 
@@ -41,10 +67,14 @@ export const dashboard = async (req, res) => {
           province,
           region,
           ajuan,
+          ajuanApprove,
           kriteria,
           user,
           sortfill_notif,
+          totalRole,
           total_dana,
+          total_dana_approve,
+          percentage: percentageAjuanWithApprove,
         },
       });
     } else if (currentUser.role_id == 2) {

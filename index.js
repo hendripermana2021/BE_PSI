@@ -15,7 +15,7 @@ app.use(router);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({}));
 
-const { PORT = 8000 } = process.env;
+const { PORT = 8080 } = process.env;
 
 app.listen(PORT, () => {
   console.log("Listening on port", PORT);

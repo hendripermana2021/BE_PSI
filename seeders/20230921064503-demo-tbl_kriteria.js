@@ -6,13 +6,6 @@ module.exports = {
       "tbl_kriteria",
       [
         {
-          name_kriteria: "Urgensi Program",
-          weight_score: 0,
-          type: true,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
           name_kriteria: "Kisaran Penerima Manfaat",
           weight_score: 0,
           type: true,
@@ -27,16 +20,9 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name_kriteria: "Skala Implementasi",
-          weight_score: 0,
-          type: true,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
           name_kriteria: "Potensi hambatan operasional",
           weight_score: 0,
-          type: false,
+          type: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -56,6 +42,20 @@ module.exports = {
         },
         {
           name_kriteria: "Peluang kolaborasi dengan pihak lain",
+          weight_score: 0,
+          type: true,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name_kriteria: "Penguatan Kapasitas Masyarakat",
+          weight_score: 0,
+          type: true,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name_kriteria: "Dukungan lembaga pendidikan dan lembaga masyarakat",
           weight_score: 0,
           type: true,
           createdAt: new Date(),

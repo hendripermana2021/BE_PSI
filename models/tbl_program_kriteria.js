@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class tbl_program_kriteria extends Model {
     /**
@@ -13,12 +11,16 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  tbl_program_kriteria.init({
-    id_program: DataTypes.INTEGER,
-    id_kriteria: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'tbl_program_kriteria',
-  });
+  tbl_program_kriteria.init(
+    {
+      id_program: DataTypes.INTEGER,
+      id_kriteria: DataTypes.INTEGER,
+      weight_score: DataTypes.FLOAT,
+    },
+    {
+      sequelize,
+      modelName: "tbl_program_kriteria",
+    }
+  );
   return tbl_program_kriteria;
 };
