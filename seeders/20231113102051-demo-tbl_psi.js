@@ -31,7 +31,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 12,
+          id_subkriteria: 10,
           comment: "id kriteria 4",
           id_order: 1,
           createdAt: new Date(),
@@ -39,7 +39,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 14,
+          id_subkriteria: 13,
           comment: "id kriteria 5",
           id_order: 1,
           createdAt: new Date(),
@@ -47,7 +47,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 18,
+          id_subkriteria: 20,
           comment: "id kriteria 6",
           id_order: 1,
           createdAt: new Date(),
@@ -55,7 +55,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 20,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 1,
           createdAt: new Date(),
@@ -63,7 +63,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 23,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 1,
           createdAt: new Date(),
@@ -71,7 +71,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 2,
           createdAt: new Date(),
@@ -87,7 +87,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 7,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 2,
           createdAt: new Date(),
@@ -95,7 +95,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 10,
+          id_subkriteria: 11,
           comment: "id kriteria 4",
           id_order: 2,
           createdAt: new Date(),
@@ -119,7 +119,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 19,
+          id_subkriteria: 20,
           comment: "id kriteria 7",
           id_order: 2,
           createdAt: new Date(),
@@ -127,7 +127,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 22,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 2,
           createdAt: new Date(),
@@ -135,7 +135,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 1,
+          id_subkriteria: 3,
           comment: "id kriteria 1",
           id_order: 3,
           createdAt: new Date(),
@@ -143,7 +143,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 5,
+          id_subkriteria: 4,
           comment: "id kriteria 2",
           id_order: 3,
           createdAt: new Date(),
@@ -151,7 +151,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 8,
+          id_subkriteria: 9,
           comment: "id kriteria 3",
           id_order: 3,
           createdAt: new Date(),
@@ -175,7 +175,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 17,
+          id_subkriteria: 18,
           comment: "id kriteria 6",
           id_order: 3,
           createdAt: new Date(),
@@ -199,7 +199,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 4,
           createdAt: new Date(),
@@ -207,7 +207,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 4,
           comment: "id kriteria 2",
           id_order: 4,
           createdAt: new Date(),
@@ -215,7 +215,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 4,
           createdAt: new Date(),
@@ -223,7 +223,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 11,
           comment: "id kriteria 4",
           id_order: 4,
           createdAt: new Date(),
@@ -231,7 +231,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 14,
           comment: "id kriteria 5",
           id_order: 4,
           createdAt: new Date(),
@@ -239,7 +239,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 18,
           comment: "id kriteria 6",
           id_order: 4,
           createdAt: new Date(),
@@ -247,7 +247,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 19,
           comment: "id kriteria 7",
           id_order: 4,
           createdAt: new Date(),
@@ -255,7 +255,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 4,
           createdAt: new Date(),
@@ -263,7 +263,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 5,
           createdAt: new Date(),
@@ -271,7 +271,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 5,
           createdAt: new Date(),
@@ -279,7 +279,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 5,
           createdAt: new Date(),
@@ -287,7 +287,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 11,
           comment: "id kriteria 4",
           id_order: 5,
           createdAt: new Date(),
@@ -295,7 +295,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 5,
           createdAt: new Date(),
@@ -303,7 +303,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 5,
           createdAt: new Date(),
@@ -311,7 +311,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 5,
           createdAt: new Date(),
@@ -319,7 +319,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 5,
           createdAt: new Date(),
@@ -327,7 +327,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 3,
           comment: "id kriteria 1",
           id_order: 6,
           createdAt: new Date(),
@@ -335,7 +335,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 6,
           comment: "id kriteria 2",
           id_order: 6,
           createdAt: new Date(),
@@ -343,7 +343,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 6,
           createdAt: new Date(),
@@ -351,7 +351,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 6,
           createdAt: new Date(),
@@ -359,7 +359,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 6,
           createdAt: new Date(),
@@ -367,7 +367,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 6,
           createdAt: new Date(),
@@ -375,7 +375,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 6,
           createdAt: new Date(),
@@ -383,7 +383,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 6,
           createdAt: new Date(),
@@ -399,7 +399,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 6,
           comment: "id kriteria 2",
           id_order: 7,
           createdAt: new Date(),
@@ -407,7 +407,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 7,
           createdAt: new Date(),
@@ -415,7 +415,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 7,
           createdAt: new Date(),
@@ -423,7 +423,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 7,
           createdAt: new Date(),
@@ -431,7 +431,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 7,
           createdAt: new Date(),
@@ -439,7 +439,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 7,
           createdAt: new Date(),
@@ -447,7 +447,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 7,
           createdAt: new Date(),
@@ -463,7 +463,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 8,
           createdAt: new Date(),
@@ -471,7 +471,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 7,
           comment: "id kriteria 3",
           id_order: 8,
           createdAt: new Date(),
@@ -479,7 +479,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 8,
           createdAt: new Date(),
@@ -487,7 +487,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 8,
           createdAt: new Date(),
@@ -495,7 +495,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 8,
           createdAt: new Date(),
@@ -503,7 +503,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 19,
           comment: "id kriteria 7",
           id_order: 8,
           createdAt: new Date(),
@@ -511,7 +511,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 8,
           createdAt: new Date(),
@@ -519,7 +519,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 9,
           createdAt: new Date(),
@@ -527,7 +527,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 9,
           createdAt: new Date(),
@@ -535,7 +535,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 7,
           comment: "id kriteria 3",
           id_order: 9,
           createdAt: new Date(),
@@ -543,7 +543,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 9,
           createdAt: new Date(),
@@ -551,7 +551,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 9,
           createdAt: new Date(),
@@ -559,7 +559,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 9,
           createdAt: new Date(),
@@ -567,7 +567,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 20,
           comment: "id kriteria 7",
           id_order: 9,
           createdAt: new Date(),
@@ -575,7 +575,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 9,
           createdAt: new Date(),
@@ -591,7 +591,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 10,
           createdAt: new Date(),
@@ -599,7 +599,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 7,
           comment: "id kriteria 3",
           id_order: 10,
           createdAt: new Date(),
@@ -607,7 +607,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 10,
           createdAt: new Date(),
@@ -615,7 +615,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 14,
           comment: "id kriteria 5",
           id_order: 10,
           createdAt: new Date(),
@@ -623,7 +623,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 18,
           comment: "id kriteria 6",
           id_order: 10,
           createdAt: new Date(),
@@ -631,7 +631,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 10,
           createdAt: new Date(),
@@ -639,12 +639,13 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 24,
           comment: "id kriteria 8",
           id_order: 10,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+
         {
           id_kriteria: 1,
           id_subkriteria: 1,
@@ -671,7 +672,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 12,
+          id_subkriteria: "10",
           comment: "id kriteria 4",
           id_order: 11,
           createdAt: new Date(),
@@ -679,7 +680,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 14,
+          id_subkriteria: 13,
           comment: "id kriteria 5",
           id_order: 11,
           createdAt: new Date(),
@@ -687,7 +688,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 18,
+          id_subkriteria: 20,
           comment: "id kriteria 6",
           id_order: 11,
           createdAt: new Date(),
@@ -695,7 +696,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 20,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 11,
           createdAt: new Date(),
@@ -703,7 +704,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 23,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 11,
           createdAt: new Date(),
@@ -711,7 +712,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 12,
           createdAt: new Date(),
@@ -727,7 +728,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 7,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 12,
           createdAt: new Date(),
@@ -735,7 +736,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 10,
+          id_subkriteria: 11,
           comment: "id kriteria 4",
           id_order: 12,
           createdAt: new Date(),
@@ -759,7 +760,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 19,
+          id_subkriteria: 20,
           comment: "id kriteria 7",
           id_order: 12,
           createdAt: new Date(),
@@ -767,7 +768,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 22,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 12,
           createdAt: new Date(),
@@ -775,7 +776,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 1,
+          id_subkriteria: 3,
           comment: "id kriteria 1",
           id_order: 13,
           createdAt: new Date(),
@@ -783,7 +784,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 5,
+          id_subkriteria: 4,
           comment: "id kriteria 2",
           id_order: 13,
           createdAt: new Date(),
@@ -791,7 +792,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 8,
+          id_subkriteria: "9",
           comment: "id kriteria 3",
           id_order: 13,
           createdAt: new Date(),
@@ -815,7 +816,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 17,
+          id_subkriteria: 18,
           comment: "id kriteria 6",
           id_order: 13,
           createdAt: new Date(),
@@ -839,7 +840,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 14,
           createdAt: new Date(),
@@ -847,7 +848,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 4,
           comment: "id kriteria 2",
           id_order: 14,
           createdAt: new Date(),
@@ -855,7 +856,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 14,
           createdAt: new Date(),
@@ -863,7 +864,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 11,
           comment: "id kriteria 4",
           id_order: 14,
           createdAt: new Date(),
@@ -871,7 +872,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 14,
           comment: "id kriteria 5",
           id_order: 14,
           createdAt: new Date(),
@@ -879,7 +880,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 18,
           comment: "id kriteria 6",
           id_order: 14,
           createdAt: new Date(),
@@ -887,7 +888,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 19,
           comment: "id kriteria 7",
           id_order: 14,
           createdAt: new Date(),
@@ -895,7 +896,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 14,
           createdAt: new Date(),
@@ -903,7 +904,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 15,
           createdAt: new Date(),
@@ -911,7 +912,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 15,
           createdAt: new Date(),
@@ -919,7 +920,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 15,
           createdAt: new Date(),
@@ -927,7 +928,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 11,
           comment: "id kriteria 4",
           id_order: 15,
           createdAt: new Date(),
@@ -935,7 +936,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 15,
           createdAt: new Date(),
@@ -943,7 +944,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 15,
           createdAt: new Date(),
@@ -951,7 +952,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 15,
           createdAt: new Date(),
@@ -959,7 +960,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 15,
           createdAt: new Date(),
@@ -967,7 +968,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 3,
           comment: "id kriteria 1",
           id_order: 16,
           createdAt: new Date(),
@@ -975,7 +976,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 6,
           comment: "id kriteria 2",
           id_order: 16,
           createdAt: new Date(),
@@ -983,7 +984,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 16,
           createdAt: new Date(),
@@ -991,7 +992,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 16,
           createdAt: new Date(),
@@ -999,7 +1000,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 16,
           createdAt: new Date(),
@@ -1007,7 +1008,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 16,
           createdAt: new Date(),
@@ -1015,7 +1016,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 16,
           createdAt: new Date(),
@@ -1023,7 +1024,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 16,
           createdAt: new Date(),
@@ -1039,7 +1040,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 6,
           comment: "id kriteria 2",
           id_order: 17,
           createdAt: new Date(),
@@ -1047,7 +1048,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 17,
           createdAt: new Date(),
@@ -1055,7 +1056,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 17,
           createdAt: new Date(),
@@ -1063,7 +1064,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 17,
           createdAt: new Date(),
@@ -1071,7 +1072,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 17,
           createdAt: new Date(),
@@ -1079,7 +1080,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 17,
           createdAt: new Date(),
@@ -1087,7 +1088,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 17,
           createdAt: new Date(),
@@ -1103,7 +1104,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 18,
           createdAt: new Date(),
@@ -1111,7 +1112,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 7,
           comment: "id kriteria 3",
           id_order: 18,
           createdAt: new Date(),
@@ -1119,7 +1120,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 18,
           createdAt: new Date(),
@@ -1127,7 +1128,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 18,
           createdAt: new Date(),
@@ -1135,7 +1136,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 18,
           createdAt: new Date(),
@@ -1143,7 +1144,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 19,
           comment: "id kriteria 7",
           id_order: 18,
           createdAt: new Date(),
@@ -1151,7 +1152,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 18,
           createdAt: new Date(),
@@ -1159,7 +1160,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 19,
           createdAt: new Date(),
@@ -1167,7 +1168,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 19,
           createdAt: new Date(),
@@ -1175,7 +1176,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 7,
           comment: "id kriteria 3",
           id_order: 19,
           createdAt: new Date(),
@@ -1183,7 +1184,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 19,
           createdAt: new Date(),
@@ -1191,7 +1192,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 19,
           createdAt: new Date(),
@@ -1199,7 +1200,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 19,
           createdAt: new Date(),
@@ -1207,7 +1208,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 20,
           comment: "id kriteria 7",
           id_order: 19,
           createdAt: new Date(),
@@ -1215,7 +1216,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 19,
           createdAt: new Date(),
@@ -1231,7 +1232,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 20,
           createdAt: new Date(),
@@ -1239,7 +1240,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 7,
           comment: "id kriteria 3",
           id_order: 20,
           createdAt: new Date(),
@@ -1247,7 +1248,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 20,
           createdAt: new Date(),
@@ -1255,7 +1256,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 14,
           comment: "id kriteria 5",
           id_order: 20,
           createdAt: new Date(),
@@ -1263,7 +1264,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 18,
           comment: "id kriteria 6",
           id_order: 20,
           createdAt: new Date(),
@@ -1271,7 +1272,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 20,
           createdAt: new Date(),
@@ -1279,7 +1280,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 24,
           comment: "id kriteria 8",
           id_order: 20,
           createdAt: new Date(),
@@ -1311,7 +1312,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 12,
+          id_subkriteria: "10",
           comment: "id kriteria 4",
           id_order: 21,
           createdAt: new Date(),
@@ -1319,7 +1320,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 14,
+          id_subkriteria: 13,
           comment: "id kriteria 5",
           id_order: 21,
           createdAt: new Date(),
@@ -1327,7 +1328,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 18,
+          id_subkriteria: 20,
           comment: "id kriteria 6",
           id_order: 21,
           createdAt: new Date(),
@@ -1335,7 +1336,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 20,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 21,
           createdAt: new Date(),
@@ -1343,7 +1344,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 23,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 21,
           createdAt: new Date(),
@@ -1351,7 +1352,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 22,
           createdAt: new Date(),
@@ -1367,7 +1368,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 7,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 22,
           createdAt: new Date(),
@@ -1375,7 +1376,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 10,
+          id_subkriteria: 11,
           comment: "id kriteria 4",
           id_order: 22,
           createdAt: new Date(),
@@ -1399,7 +1400,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 19,
+          id_subkriteria: 20,
           comment: "id kriteria 7",
           id_order: 22,
           createdAt: new Date(),
@@ -1407,7 +1408,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 22,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 22,
           createdAt: new Date(),
@@ -1415,7 +1416,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 1,
+          id_subkriteria: 3,
           comment: "id kriteria 1",
           id_order: 23,
           createdAt: new Date(),
@@ -1423,7 +1424,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 5,
+          id_subkriteria: 4,
           comment: "id kriteria 2",
           id_order: 23,
           createdAt: new Date(),
@@ -1431,7 +1432,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 8,
+          id_subkriteria: "9",
           comment: "id kriteria 3",
           id_order: 23,
           createdAt: new Date(),
@@ -1455,7 +1456,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 17,
+          id_subkriteria: 18,
           comment: "id kriteria 6",
           id_order: 23,
           createdAt: new Date(),
@@ -1479,7 +1480,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 24,
           createdAt: new Date(),
@@ -1487,7 +1488,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 4,
           comment: "id kriteria 2",
           id_order: 24,
           createdAt: new Date(),
@@ -1495,7 +1496,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 24,
           createdAt: new Date(),
@@ -1503,7 +1504,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 11,
           comment: "id kriteria 4",
           id_order: 24,
           createdAt: new Date(),
@@ -1511,7 +1512,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 14,
           comment: "id kriteria 5",
           id_order: 24,
           createdAt: new Date(),
@@ -1519,7 +1520,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 18,
           comment: "id kriteria 6",
           id_order: 24,
           createdAt: new Date(),
@@ -1527,7 +1528,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 19,
           comment: "id kriteria 7",
           id_order: 24,
           createdAt: new Date(),
@@ -1535,7 +1536,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 24,
           createdAt: new Date(),
@@ -1543,7 +1544,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 25,
           createdAt: new Date(),
@@ -1551,7 +1552,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 25,
           createdAt: new Date(),
@@ -1559,7 +1560,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 25,
           createdAt: new Date(),
@@ -1567,7 +1568,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 11,
           comment: "id kriteria 4",
           id_order: 25,
           createdAt: new Date(),
@@ -1575,7 +1576,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 25,
           createdAt: new Date(),
@@ -1583,7 +1584,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 25,
           createdAt: new Date(),
@@ -1591,7 +1592,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 25,
           createdAt: new Date(),
@@ -1599,7 +1600,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 25,
           createdAt: new Date(),
@@ -1607,7 +1608,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 3,
           comment: "id kriteria 1",
           id_order: 26,
           createdAt: new Date(),
@@ -1615,7 +1616,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 6,
           comment: "id kriteria 2",
           id_order: 26,
           createdAt: new Date(),
@@ -1623,7 +1624,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 26,
           createdAt: new Date(),
@@ -1631,7 +1632,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 26,
           createdAt: new Date(),
@@ -1639,7 +1640,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 26,
           createdAt: new Date(),
@@ -1647,7 +1648,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 26,
           createdAt: new Date(),
@@ -1655,7 +1656,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 26,
           createdAt: new Date(),
@@ -1663,7 +1664,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 26,
           createdAt: new Date(),
@@ -1679,7 +1680,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 6,
           comment: "id kriteria 2",
           id_order: 27,
           createdAt: new Date(),
@@ -1687,7 +1688,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 8,
           comment: "id kriteria 3",
           id_order: 27,
           createdAt: new Date(),
@@ -1695,7 +1696,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 27,
           createdAt: new Date(),
@@ -1703,7 +1704,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 27,
           createdAt: new Date(),
@@ -1711,7 +1712,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 27,
           createdAt: new Date(),
@@ -1719,7 +1720,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 27,
           createdAt: new Date(),
@@ -1727,7 +1728,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 27,
           createdAt: new Date(),
@@ -1743,7 +1744,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 28,
           createdAt: new Date(),
@@ -1751,7 +1752,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 7,
           comment: "id kriteria 3",
           id_order: 28,
           createdAt: new Date(),
@@ -1759,7 +1760,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 28,
           createdAt: new Date(),
@@ -1767,7 +1768,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 28,
           createdAt: new Date(),
@@ -1775,7 +1776,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 28,
           createdAt: new Date(),
@@ -1783,7 +1784,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 19,
           comment: "id kriteria 7",
           id_order: 28,
           createdAt: new Date(),
@@ -1791,7 +1792,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 22,
           comment: "id kriteria 8",
           id_order: 28,
           createdAt: new Date(),
@@ -1799,7 +1800,7 @@ module.exports = {
         },
         {
           id_kriteria: 1,
-          id_subkriteria: 2,
+          id_subkriteria: 1,
           comment: "id kriteria 1",
           id_order: 29,
           createdAt: new Date(),
@@ -1807,7 +1808,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 29,
           createdAt: new Date(),
@@ -1815,7 +1816,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 7,
           comment: "id kriteria 3",
           id_order: 29,
           createdAt: new Date(),
@@ -1823,7 +1824,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 29,
           createdAt: new Date(),
@@ -1831,7 +1832,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 15,
           comment: "id kriteria 5",
           id_order: 29,
           createdAt: new Date(),
@@ -1839,7 +1840,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 16,
           comment: "id kriteria 6",
           id_order: 29,
           createdAt: new Date(),
@@ -1847,7 +1848,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 20,
           comment: "id kriteria 7",
           id_order: 29,
           createdAt: new Date(),
@@ -1855,7 +1856,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 23,
           comment: "id kriteria 8",
           id_order: 29,
           createdAt: new Date(),
@@ -1871,7 +1872,7 @@ module.exports = {
         },
         {
           id_kriteria: 2,
-          id_subkriteria: 3,
+          id_subkriteria: 5,
           comment: "id kriteria 2",
           id_order: 30,
           createdAt: new Date(),
@@ -1879,7 +1880,7 @@ module.exports = {
         },
         {
           id_kriteria: 3,
-          id_subkriteria: 6,
+          id_subkriteria: 7,
           comment: "id kriteria 3",
           id_order: 30,
           createdAt: new Date(),
@@ -1887,7 +1888,7 @@ module.exports = {
         },
         {
           id_kriteria: 4,
-          id_subkriteria: 9,
+          id_subkriteria: 12,
           comment: "id kriteria 4",
           id_order: 30,
           createdAt: new Date(),
@@ -1895,7 +1896,7 @@ module.exports = {
         },
         {
           id_kriteria: 5,
-          id_subkriteria: 12,
+          id_subkriteria: 14,
           comment: "id kriteria 5",
           id_order: 30,
           createdAt: new Date(),
@@ -1903,7 +1904,7 @@ module.exports = {
         },
         {
           id_kriteria: 6,
-          id_subkriteria: 15,
+          id_subkriteria: 18,
           comment: "id kriteria 6",
           id_order: 30,
           createdAt: new Date(),
@@ -1911,7 +1912,7 @@ module.exports = {
         },
         {
           id_kriteria: 7,
-          id_subkriteria: 18,
+          id_subkriteria: 21,
           comment: "id kriteria 7",
           id_order: 30,
           createdAt: new Date(),
@@ -1919,7 +1920,7 @@ module.exports = {
         },
         {
           id_kriteria: 8,
-          id_subkriteria: 21,
+          id_subkriteria: 24,
           comment: "id kriteria 8",
           id_order: 30,
           createdAt: new Date(),

@@ -3,11 +3,12 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
+    const idRegion = [1, 2, 3, 4, 19, 23, 21, 20, 16, 18];
     const createProgramEntries = (programId) => {
       return Array.from({ length: 10 }, (_, index) => ({
         id_users: index + 1,
         id_province: 1,
-        id_region: index + 1, // Assuming id_region corresponds to id_users
+        id_region: idRegion[index], // Assuming id_region corresponds to id_users
         id_program: programId,
         psi_result: 0,
         commented: `Ajuan program pemerintahan ${index + 1}`,

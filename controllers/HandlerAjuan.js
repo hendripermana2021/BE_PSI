@@ -171,6 +171,8 @@ export const getDataAjuanByProgram = async (req, res) => {
       ],
     });
 
+    console.log("test yang undefined : ", id);
+
     res.status(200).json({
       code: 200,
       status: true,
