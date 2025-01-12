@@ -91,6 +91,7 @@ import {
   getDataAjuanByProgram,
   getDataAjuanByProgramForGenerated,
   getDataAjuanOnlyAccepted,
+  getDataAjuanPegawai,
   updateAjuan,
 } from "../controllers/HandlerAjuan.js";
 
@@ -190,6 +191,7 @@ router.delete(
 
 //AJUAN
 router.get(prefix + "ajuan", verifyToken, getDataAjuanOnlyAccepted);
+router.get(prefix + "ajuan-pegawai", verifyToken, getDataAjuanPegawai);
 router.get(prefix + "ajuan/byid/:id", verifyToken, getDataAjuanById);
 router.delete(prefix + "ajuan/delete/:id", verifyToken, deleteAjuan);
 router.post(prefix + "ajuan/register", verifyToken, createAjuan);

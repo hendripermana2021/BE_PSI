@@ -11,6 +11,51 @@ const Notif = db.tbl_notification;
 const Province = db.tbl_province;
 const Region = db.tbl_region;
 
+export const getDataAjuanPegawai = async (req, res) => {
+  try {
+    const user = req.user;
+    const reqAjuan = await Req.findAll({
+      where: {
+        id_users: user.userId,
+      },
+      include: [
+        {
+          model: Program,
+          as: "program",
+        },
+        {
+          model: Psi,
+          as: "psi_data",
+          include: [
+            {
+              model: Kriteria,
+              as: "kriteria",
+            },
+            {
+              model: Sub_Kriteria,
+              as: "subkriteria",
+            },
+          ],
+        },
+      ],
+    });
+
+    res.status(200).json({
+      code: 200,
+      status: true,
+      msg: "All Data Permission",
+      data: reqAjuan,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      code: 400,
+      status: false,
+      msg: "Error: " + error.message,
+    });
+  }
+};
+
 export const getDataAjuanOnlyAccepted = async (req, res) => {
   try {
     const req = await Req.findAll({

@@ -78,26 +78,57 @@ export const dashboard = async (req, res) => {
         },
       });
     } else if (currentUser.role_id == 2) {
-      const total_ajuan_programs = await Req.findAll({
-        where: { id_user: user_id },
+      const total_programs = (await Program.findAll()).length;
+      const ajuanProgram = await Req.findAll({
+        where: {
+          id_users: user_id,
+        },
+        include: {
+          model: Program,
+          as: "program",
+        },
       });
 
-      for (let i = 0; i < total_ajuan_programs.length; i++) {
-        total_dana += total_ajuan_programs[i].jlh_dana;
+      const ajuanAktif = (
+        await Req.findAll({
+          where: {
+            id_users: user_id,
+            req_status: true,
+          },
+        })
+      ).length;
+      const ajuanApprove = (
+        await Req.findAll({
+          where: {
+            id_users: user_id,
+            req_status: false,
+          },
+        })
+      ).length;
+      const totalDanaAjuanApprove = await Req.findAll({
+        where: {
+          id_users: user_id,
+          req_status: false,
+        },
+      });
+
+      let total_dana_approve = 0;
+      for (let i = 0; i < totalDanaAjuanApprove.length; i++) {
+        total_dana_approve += totalDanaAjuanApprove[i].jlh_dana;
       }
 
-      const notif = await Notif.findAll({ where: { id_user: user_id } });
-      const sortfill_notif = notif.sort((b, a) => a.id - b.id);
-
+      //Total Dana Disetujui, total program aktif, total program disetujui, total program diajukan
       res.status(200).json({
         code: 200,
         status: true,
-        msg: "Dashboard for Regional Administration",
+        msg: "Dashboard for Admin",
         data: {
           currentUser,
-          total_ajuan_programs,
-          total_dana,
-          sortfill_notif,
+          total_dana: total_dana_approve,
+          total_program: total_programs,
+          total_program_approved: ajuanApprove,
+          total_program_active: ajuanAktif,
+          program: ajuanProgram,
         },
       });
     } else {
