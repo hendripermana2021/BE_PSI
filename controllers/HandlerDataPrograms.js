@@ -156,8 +156,7 @@ export const getDataKriteriaByPrograms = async (req, res) => {
 
 export const getDataProgramsWithKriteria = async (req, res) => {
   try {
-    let program;
-    program = await Program.findAll({
+      const program = await Program.findAll({
       include: {
         model: ProgramKriteria,
         as: "programs_kriteria",

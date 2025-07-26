@@ -1,5 +1,5 @@
 import db from "../models/index.js";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Op } from "sequelize";
 
@@ -101,7 +101,7 @@ export const Login = async (req, res) => {
       });
     }
 
-    const match = await bcrypt.compare(req.body.password, user.password);
+    const match = await bcryptjs.compare(req.body.password, user.password);
 
     if (!match) {
       return res.status(404).json({
@@ -275,8 +275,8 @@ export const RegisterUsers = async (req, res) => {
   const { name, sex, email, password, role_id, region_id, province_id } =
     req.body;
 
-  const salt = await bcrypt.genSalt();
-  const hashPassword = await bcrypt.hash(password, salt);
+  const salt = await bcryptjs.genSalt();
+  const hashPassword = await bcryptjs.hash(password, salt);
   try {
     const user = await Users.create({
       name,
@@ -308,6 +308,7 @@ export const getDataUsersQueryRoleandRegion = async (req, res) => {
   try {
     const role = req.query.role;
     const regionId = req.query.regionId;
+    console.log("=========>>>>> REGION ID", regionId)
     const user = await Users.findAll({
       where: {
         role_id: role || [1, 2, 3],
@@ -427,8 +428,8 @@ export const updateDataUsers = async (req, res) => {
       });
     }
 
-    const salt = await bcrypt.genSalt();
-    const hashPassword = await bcrypt.hash(password, salt);
+    const salt = await bcryptjs.genSalt();
+    const hashPassword = await bcryptjs.hash(password, salt);
 
     await Users.update(
       {
