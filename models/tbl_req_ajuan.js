@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       id_province: DataTypes.INTEGER,
       id_region: DataTypes.INTEGER,
       id_program: DataTypes.INTEGER,
-      jlh_dana: DataTypes.FLOAT,
+      jlh_dana: DataTypes.DOUBLE,
       psi_result: DataTypes.FLOAT,
       commented: DataTypes.STRING,
       req_status: DataTypes.BOOLEAN,

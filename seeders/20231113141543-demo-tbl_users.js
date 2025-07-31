@@ -8,7 +8,7 @@ module.exports = {
       [
         {
           name: "Siti Kumalasari, S.Sos",
-          sex: 2,
+          sex: "Perempuan",
           email: "sitikumalasari@gmail.com",
           password: await bcrypt.hash("12345", 10),
           real_password: "12345",
@@ -23,7 +23,7 @@ module.exports = {
         },
         {
           name: "Setia Darma, S.IP",
-          sex: 1,
+          sex: "Laki-laki",
           email: "setia@gmail.com",
           password: await bcrypt.hash("12345", 10),
           real_password: "12345",
@@ -38,7 +38,7 @@ module.exports = {
         },
         {
           name: "Yusuf, S.Pd",
-          sex: 1,
+          sex: "Laki-laki",
           email: "yusuf@gmail.com",
           password: await bcrypt.hash("12345", 10),
           real_password: "12345",
@@ -53,7 +53,7 @@ module.exports = {
         },
         {
           name: "Dharma Bakti, M.Si",
-          sex: 1,
+          sex: "Laki-laki",
           email: "dharma@gmail.com",
           password: await bcrypt.hash("12345", 10),
           real_password: "12345",
@@ -68,7 +68,7 @@ module.exports = {
         },
         {
           name: "Sinta, S.Kom",
-          sex: 2,
+          sex: "Perempuan",
           email: "Sinta@gmail.com",
           password: await bcrypt.hash("12345", 10),
           real_password: "12345",
@@ -83,7 +83,7 @@ module.exports = {
         },
         {
           name: "Junaidah, SE",
-          sex: 2,
+          sex: "Perempuan",
           email: "junaidah@gmail.com",
           password: await bcrypt.hash("12345", 10),
           real_password: "12345",
@@ -98,7 +98,7 @@ module.exports = {
         },
         {
           name: "Hilmi Ramadhan, M.Pd",
-          sex: 1,
+          sex: "Laki-laki",
           email: "hilmi@gmail.com",
           password: await bcrypt.hash("12345", 10),
           real_password: "12345",
@@ -113,7 +113,7 @@ module.exports = {
         },
         {
           name: "Satria, SH",
-          sex: 1,
+          sex: "Laki-laki",
           email: "satria@gmail.com",
           password: await bcrypt.hash("12345", 10),
           real_password: "12345",
@@ -128,7 +128,7 @@ module.exports = {
         },
         {
           name: "Busri, S.Ag",
-          sex: 1,
+          sex: "Laki-laki",
           email: "busri@gmail.com",
           password: await bcrypt.hash("12345", 10),
           real_password: "12345",
@@ -143,7 +143,7 @@ module.exports = {
         },
         {
           name: "Talawi, S.Pt",
-          sex: 1,
+          sex: "Laki-laki",
           email: "talawi@gmail.com",
           password: await bcrypt.hash("12345", 10),
           real_password: "12345",

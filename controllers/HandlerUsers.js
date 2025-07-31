@@ -111,16 +111,16 @@ export const Login = async (req, res) => {
       });
     }
 
-    const { id, name, sex, role_id, email } = user;
+    const { id, name, sex, role_id, email, region_id, province_id } = user;
 
     const accessToken = jwt.sign(
-      { id, name, sex, email, role_id },
+      { id, name, sex, email, role_id, region_id, province_id },
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "1d" }
     );
 
     const refreshToken = jwt.sign(
-      { id, name, sex, email, role_id },
+      { id, name, sex, email, role_id, region_id, province_id },
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: "1d" }
     );

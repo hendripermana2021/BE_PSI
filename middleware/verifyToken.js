@@ -19,9 +19,8 @@ export const verifyToken = (req, res, next) => {
       sex: decoded.sex,
       email: decoded.email, // Fix here: change decoded.gender to decoded.email
       role_id: decoded.role_id,
-      image: decoded.image,
-      provinceId: decoded.province_id,
-      regionId: decoded.region_id,
+      province_id: decoded.province_id,
+      region_id: decoded.region_id,
     };
 
     req.id = decoded.userId;
@@ -29,9 +28,8 @@ export const verifyToken = (req, res, next) => {
     req.sex = decoded.sex;
     req.email = decoded.email;
     req.role_id = decoded.role_id;
-    req.image = decoded.image;
-    req.provinceId = decoded.province_id;
-    req.regionId = decoded.region_id;
+    req.province_id = decoded.province_id;
+    req.region_id = decoded.region_id;
 
     next();
   });

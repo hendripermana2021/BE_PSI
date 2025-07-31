@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       jlh_dana: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.DOUBLE,
       },
       psi_result: {
         type: Sequelize.FLOAT,

@@ -20,6 +20,18 @@ export const getDataAjuanPegawai = async (req, res) => {
       },
       include: [
         {
+          model: Users,
+          as: "users",
+        },
+        {
+          model: Province,
+          as: "province",
+        },
+        {
+          model: Region,
+          as: "region",
+        },
+        {
           model: Program,
           as: "program",
         },
@@ -419,8 +431,8 @@ export const createAjuan = async (req, res) => {
     } else {
       req = await Req.create({
         id_users: user.userId,
-        id_province: user.provinceId,
-        id_region: user.regionId,
+        id_province: user.province_id,
+        id_region: user.region_id,
         id_program,
         psi_result: 0,
         commented,
